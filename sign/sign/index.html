@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://szimek.github.io/signature_pad/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Signature Pad demo</title>
+  <meta name="description" content="Signature Pad - HTML5 canvas based smooth signature drawing using variable width spline interpolation.">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link rel="stylesheet" href="css/signature-pad.css">
+
+
+</head>
+<body onselectstart="return false">
+ 
+  <div class="message">
+     	<div class="row">
+				<p class="center">100 - 销售签字</p>
+			</div>
+  </div>
+  <div id="signature-pad" class="m-signature-pad">
+    <div class="m-signature-pad--body">
+      <canvas width="658" height="318"></canvas>
+    </div>
+    <div class="m-signature-pad--footer">
+      <div class="row">
+				<p style="color: #666666;padding-left: 15px;font-size: 1em;">客户姓名：<span id="Name">张威军</span><span id="Number"></span> 11176930001</p>
+			</div>
+			<div class="row">
+				<button class="btn btn-clear clear" data-action="clear">清除签名</button>
+				<button class="btn btn-confirm save" data-action="save">签字确认</button>
+			</div>
+    </div>
+  </div>
+
+  <script src="./js/signature_pad.js"></script>
+  <script src="./js/app.js"></script>
+
+
+</body></html>
