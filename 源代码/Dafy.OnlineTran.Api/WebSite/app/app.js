@@ -164,17 +164,17 @@ define([
 		            }
 		    }))
             
-            .state('home.contractList', angularAMD.route({ //合同列表
-		            url: '/contractList',
-		            templateUrl: 'templates/contract/contractList.html',
+            .state('home.getUsers', angularAMD.route({ //理财师管理列表
+		            url: '/getUsers',
+		            templateUrl: 'templates/account/getUsers.html',
 		            resolve: {
 		                loadController: ['$q', '$stateParams',
 		                    function($q, $stateParams) {
-		                        var contractCtrl = "app/controllers/contract/contractCtrl.js";
-		                        var contractService = "app/services/contract/contractService.js";
+		                        var accountCtrl = "app/controllers/account/accountCtr.js";
+		                        var accountService = "app/services/account/accountService.js";
 		
 		                        var deferred = $q.defer();
-		                        require([contractCtrl, contractService], function() {
+		                        require([accountCtrl, accountService], function() {
 		                            deferred.resolve();
 		                        });
 		                        return deferred.promise;
@@ -182,51 +182,7 @@ define([
 		                ]
 		            },
 		            controllerProvider: function($stateParams) {
-		                return "contractCtrl";
-		            }
-		    }))
-                    
-            .state('home.getVisitors', angularAMD.route({ //催收员管理
-		            url: '/getVisitors',
-		            templateUrl: 'templates/config/getVisitors.html',
-		            resolve: {
-		                loadController: ['$q', '$stateParams',
-		                    function($q, $stateParams) {
-		                        var configCtr = "app/controllers/config/configCtr.js";
-		                        var configService = "app/services/config/configService.js";
-		
-		                        var deferred = $q.defer();
-		                        require([configCtr, configService], function() {
-		                            deferred.resolve();
-		                        });
-		                        return deferred.promise;
-		                    }
-		                ]
-		            },
-		            controllerProvider: function($stateParams) {
-		                return "visitorCtrl";
-		            }
-		    }))
-            
-            .state('home.getCaseNumbers', angularAMD.route({ //案件数量配置
-		            url: '/getCaseNumbers',
-		            templateUrl: 'templates/config/getCaseNumbers.html',
-		            resolve: {
-		                loadController: ['$q', '$stateParams',
-		                    function($q, $stateParams) {
-		                        var configCtr = "app/controllers/config/configCtr.js";
-		                        var configService = "app/services/config/configService.js";
-		
-		                        var deferred = $q.defer();
-		                        require([configCtr, configService], function() {
-		                            deferred.resolve();
-		                        });
-		                        return deferred.promise;
-		                    }
-		                ]
-		            },
-		            controllerProvider: function($stateParams) {
-		                return "caseNumberCtrl";
+		                return "weixinUserCtrl";
 		            }
 		    }))
     }]);

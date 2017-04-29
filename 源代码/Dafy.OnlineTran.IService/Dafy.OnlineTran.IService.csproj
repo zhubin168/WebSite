@@ -46,6 +46,7 @@
     <Compile Include="Pc\IAccountService.cs" />
     <Compile Include="IInitService.cs" />
     <Compile Include="Pc\IConfigService.cs" />
+    <Compile Include="Pc\IUserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

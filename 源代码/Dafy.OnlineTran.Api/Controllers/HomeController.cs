@@ -92,7 +92,7 @@ namespace Dafy.OnlineTran.Api.Controllers
         /// </summary>
         [HttpPost]
         [AllowAnonymous]
-        public AuthorityMenuRs GetAuthorityMeun()
+        public AuthorityMenuRS GetAuthorityMeun()
         {
             //系统菜单
             var lstmainSystemMenu = new List<MenuAdminList>();
@@ -122,7 +122,7 @@ namespace Dafy.OnlineTran.Api.Controllers
                 main.menuItemList = lstchildSystemMenu;
                 menuAdminList.Add(main);
             }
-            return new AuthorityMenuRs()
+            return new AuthorityMenuRS()
             {
                 menuAdminList = menuAdminList
             };

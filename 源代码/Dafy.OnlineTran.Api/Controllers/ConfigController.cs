@@ -17,7 +17,7 @@ namespace GiveU.CollectionVisit.Web.Controllers
     /// <summary>
     /// 数据配置
     /// 创建人：朱斌
-    /// 创建时间：2016-12-16
+    /// 创建时间：2017-04-30
     /// </summary>
     [AllowAnonymous]
     public class ConfigController : AuthApiController

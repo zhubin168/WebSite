@@ -27,6 +27,11 @@ define([
                 CommonService.getJsonData('api/home/verifyCode', par).then(function(data) {
                     callback(data);
                 });
+            },
+            getUsers: function(par,callback) { //理财师管理列表
+                CommonService.getJsonData('api/Financial/GetUsers', par).then(function(data) {
+                    callback(data);
+                });
             }
         }
     });

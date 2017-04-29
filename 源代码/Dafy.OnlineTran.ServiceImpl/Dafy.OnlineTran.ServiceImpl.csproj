@@ -104,6 +104,7 @@
     <Compile Include="InitService.cs" />
     <Compile Include="Pc\AccountService.cs" />
     <Compile Include="Pc\ConfigService.cs" />
+    <Compile Include="Pc\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

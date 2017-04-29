@@ -13,7 +13,7 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
     /// <summary>
     /// 数据配置实现类
     /// 创建人：朱斌
-    /// 创建时间：2016-12-16
+    /// 创建时间：2017-04-30
     /// </summary>
     public class ConfigService : IConfigService
     {

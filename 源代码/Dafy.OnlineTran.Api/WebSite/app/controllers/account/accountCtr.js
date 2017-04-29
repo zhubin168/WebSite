@@ -35,4 +35,29 @@ define(['app'], function(app) {
 
             };
 		}]);
+		
+     app.controller('weixinUserCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
+            $scope.parm = {
+			"paraName":"",
+			"pageIndex": 1,
+			"pageSize": 10
+	        }		
+			//理财师管理
+			$rootScope.getUsers=function(){
+				AccountService.getUsers($scope.parm,function(data){
+					    console.log(data);
+					    $scope.getUsersList = data.list;
+					    $scope.totalItems = data.total;
+				        $loading.finish("getUsers");
+				        
+			    });
+			 }
+			$rootScope.getUsers();
+			
+			//分页事件,获取当前的点击的页数
+			$scope.pageChanged = function() {
+				console.log($scope.parm.pageIndex);
+				$rootScope.getUsers();
+			};	
+		}]);
 });
