@@ -32,6 +32,26 @@ define([
                 CommonService.getJsonData('api/Financial/GetUsers', par).then(function(data) {
                     callback(data);
                 });
+            }, 
+            getArticles: function(par,callback) { //资讯管理列表
+                CommonService.getJsonData('api/Article/getArticles', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            getOrders: function(par,callback) { //订单管理列表
+                CommonService.getJsonData('api/Order/GetOrders', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            getProducts: function(par,callback) { //产品管理列表
+                CommonService.getJsonData('api/Product/GetProducts', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            getCourses: function(par,callback) { //课程管理列表
+                CommonService.getJsonData('api/Course/GetCourses', par).then(function(data) {
+                    callback(data);
+                });
             }
         }
     });

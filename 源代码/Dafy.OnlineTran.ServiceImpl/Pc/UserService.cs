@@ -83,7 +83,7 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
         }
 
         /// <summary>
-        /// 修改理财师信息
+        /// 保存理财师信息
         /// </summary>
         /// <param name="rq"></param>
         /// <returns></returns>
@@ -92,6 +92,22 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
         {
             EntityList<Wexin_User> users = new EntityList<Wexin_User>();
             var user = Wexin_User.FindById(rq.Id);
+            if (null == user)
+            {
+                user = new Wexin_User();
+                user.City = rq.City;
+                user.Country = rq.Country;
+                user.Create_time = DateTime.Now;
+                user.Headimgurl = rq.Headimgurl;
+                user.LoginTime = DateTime.Now;
+                user.Nickname = rq.Nickname;
+                user.Open_Id = rq.Open_Id;
+                user.Password = rq.Password;
+                user.Province = rq.Province;
+                user.Sex = rq.Sex;
+                //user.TelePhone = rq.TelePhone;
+                user.Unionid = rq.Unionid;
+            }
             user.Username = rq.Username;
             user.Password=rq.Password;
             user.TelePhone = rq.TelePhone;

@@ -20,18 +20,42 @@ namespace Dafy.OnlineTran.Common.Request
         public int Id { get; set; }
 
         /// <summary></summary>
-        public String Username { get; set; }
-
-        /// <summary>密码（初始密码为随机生成的6位数字），后台也可修改</summary>
-        public String Password { get; set; }
-
-        /// <summary>(0:客户；1：理财师)</summary>
-        public Int32 RoleId { get; set; }
-
-        /// <summary>电话</summary>
-        public String TelePhone { get; set; }
+        public string Open_Id { get; set; }
 
         /// <summary></summary>
-        public String Remark { get; set; }
+        public string Nickname { get; set; }
+
+        /// <summary></summary>
+        public int Sex { get; set; }
+
+        /// <summary></summary>
+        public string City { get; set; }
+
+        /// <summary></summary>
+        public string Country { get; set; }
+
+        /// <summary></summary>
+        public string Province { get; set; }
+
+        /// <summary></summary>
+        public string Headimgurl { get; set; }
+
+        /// <summary></summary>
+        public string Unionid { get; set; }
+
+        /// <summary></summary>
+        public string Username { get; set; }
+
+        /// <summary>密码（初始密码为随机生成的6位数字），后台也可修改</summary>
+        public string Password { get; set; }
+
+        /// <summary>(0:客户；1：理财师)</summary>
+        public int RoleId { get; set; }
+
+        /// <summary>电话</summary>
+        public string TelePhone { get; set; }
+
+        /// <summary></summary>
+        public string Remark { get; set; }
     }
 }

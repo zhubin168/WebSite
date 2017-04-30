@@ -103,7 +103,11 @@
   <ItemGroup>
     <Compile Include="InitService.cs" />
     <Compile Include="Pc\AccountService.cs" />
+    <Compile Include="Pc\ArticleService.cs" />
     <Compile Include="Pc\ConfigService.cs" />
+    <Compile Include="Pc\CourseService.cs" />
+    <Compile Include="Pc\OrderService.cs" />
+    <Compile Include="Pc\ProductService.cs" />
     <Compile Include="Pc\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

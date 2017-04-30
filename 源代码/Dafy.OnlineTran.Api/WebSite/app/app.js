@@ -185,6 +185,94 @@ define([
 		                return "weixinUserCtrl";
 		            }
 		    }))
+            
+            .state('home.getArticles', angularAMD.route({ //资讯管理列表
+		            url: '/getArticles',
+		            templateUrl: 'templates/account/getArticles.html',
+		            resolve: {
+		                loadController: ['$q', '$stateParams',
+		                    function($q, $stateParams) {
+		                        var accountCtrl = "app/controllers/account/accountCtr.js";
+		                        var accountService = "app/services/account/accountService.js";
+		
+		                        var deferred = $q.defer();
+		                        require([accountCtrl, accountService], function() {
+		                            deferred.resolve();
+		                        });
+		                        return deferred.promise;
+		                    }
+		                ]
+		            },
+		            controllerProvider: function($stateParams) {
+		                return "articlesCtrl";
+		            }
+		    }))
+            
+            .state('home.getOrders', angularAMD.route({ //订单管理列表
+		            url: '/getOrders',
+		            templateUrl: 'templates/account/getOrders.html',
+		            resolve: {
+		                loadController: ['$q', '$stateParams',
+		                    function($q, $stateParams) {
+		                        var accountCtrl = "app/controllers/account/accountCtr.js";
+		                        var accountService = "app/services/account/accountService.js";
+		
+		                        var deferred = $q.defer();
+		                        require([accountCtrl, accountService], function() {
+		                            deferred.resolve();
+		                        });
+		                        return deferred.promise;
+		                    }
+		                ]
+		            },
+		            controllerProvider: function($stateParams) {
+		                return "ordersCtrl";
+		            }
+		    }))
+            
+             .state('home.getProducts', angularAMD.route({ //产品管理列表
+		            url: '/getProducts',
+		            templateUrl: 'templates/account/getProducts.html',
+		            resolve: {
+		                loadController: ['$q', '$stateParams',
+		                    function($q, $stateParams) {
+		                        var accountCtrl = "app/controllers/account/accountCtr.js";
+		                        var accountService = "app/services/account/accountService.js";
+		
+		                        var deferred = $q.defer();
+		                        require([accountCtrl, accountService], function() {
+		                            deferred.resolve();
+		                        });
+		                        return deferred.promise;
+		                    }
+		                ]
+		            },
+		            controllerProvider: function($stateParams) {
+		                return "productsCtrl";
+		            }
+		    }))
+             
+             .state('home.getCourses', angularAMD.route({ //课程管理列表
+		            url: '/getCourses',
+		            templateUrl: 'templates/account/getCourses.html',
+		            resolve: {
+		                loadController: ['$q', '$stateParams',
+		                    function($q, $stateParams) {
+		                        var accountCtrl = "app/controllers/account/accountCtr.js";
+		                        var accountService = "app/services/account/accountService.js";
+		
+		                        var deferred = $q.defer();
+		                        require([accountCtrl, accountService], function() {
+		                            deferred.resolve();
+		                        });
+		                        return deferred.promise;
+		                    }
+		                ]
+		            },
+		            controllerProvider: function($stateParams) {
+		                return "coursesCtrl";
+		            }
+		    }))
     }]);
 
     return angularAMD.bootstrap(app);

@@ -60,4 +60,104 @@ define(['app'], function(app) {
 				$rootScope.getUsers();
 			};	
 		}]);
+		
+		app.controller('articlesCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
+            $scope.parm = {
+			"paraName":"",
+			"pageIndex": 1,
+			"pageSize": 10
+	        }		
+			//资讯管理
+			$rootScope.getArticles=function(){
+				AccountService.getArticles($scope.parm,function(data){
+					    console.log(data);
+					    $scope.getArticlesList = data.list;
+					    $scope.totalItems = data.total;
+				        $loading.finish("getArticles");
+				        
+			    });
+			 }
+			$rootScope.getArticles();
+			
+			//分页事件,获取当前的点击的页数
+			$scope.pageChanged = function() {
+				console.log($scope.parm.pageIndex);
+				$rootScope.getArticles();
+			};	
+		}]);
+		
+		app.controller('ordersCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
+            $scope.parm = {
+			"paraName":"",
+			"pageIndex": 1,
+			"pageSize": 10
+	        }		
+			//订单管理
+			$rootScope.getOrders=function(){
+				AccountService.getOrders($scope.parm,function(data){
+					    console.log(data);
+					    $scope.getOrdersList = data.list;
+					    $scope.totalItems = data.total;
+				        $loading.finish("getOrders");
+				        
+			    });
+			 }
+			$rootScope.getOrders();
+			
+			//分页事件,获取当前的点击的页数
+			$scope.pageChanged = function() {
+				console.log($scope.parm.pageIndex);
+				$rootScope.getOrders();
+			};	
+		}]);
+		
+		app.controller('productsCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
+            $scope.parm = {
+			"paraName":"",
+			"pageIndex": 1,
+			"pageSize": 10
+	        }		
+			//产品管理
+			$rootScope.getProducts=function(){
+				AccountService.getProducts($scope.parm,function(data){
+					    console.log(data);
+					    $scope.getProductsList = data.list;
+					    $scope.totalItems = data.total;
+				        $loading.finish("getProducts");
+				        
+			    });
+			 }
+			$rootScope.getProducts();
+			
+			//分页事件,获取当前的点击的页数
+			$scope.pageChanged = function() {
+				console.log($scope.parm.pageIndex);
+				$rootScope.getProducts();
+			};	
+		}]);
+		
+		app.controller('coursesCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
+            $scope.parm = {
+			"paraName":"",
+			"pageIndex": 1,
+			"pageSize": 10
+	        }		
+			//课程管理
+			$rootScope.getCourses=function(){
+				AccountService.getCourses($scope.parm,function(data){
+					    console.log(data);
+					    $scope.getCoursesList = data.list;
+					    $scope.totalItems = data.total;
+				        $loading.finish("getCourses");
+				        
+			    });
+			 }
+			$rootScope.getCourses();
+			
+			//分页事件,获取当前的点击的页数
+			$scope.pageChanged = function() {
+				console.log($scope.parm.pageIndex);
+				$rootScope.getCourses();
+			};	
+		}]);
 });

@@ -848,10 +848,14 @@
     <Compile Include="App_Start\Startup.SignalR.cs" />
     <Compile Include="App_Start\SwaggerConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\ConfigController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\FinancialController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Extensions\MyMultipartFormDataStreamProvider.cs" />
     <Compile Include="Filters\ModelValidationFilterAttribute.cs" />
     <Compile Include="Filters\WebApiExceptionHandleFilter.cs" />
