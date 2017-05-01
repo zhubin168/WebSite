@@ -52,6 +52,16 @@ define([
                 CommonService.getJsonData('api/Course/GetCourses', par).then(function(data) {
                     callback(data);
                 });
+            }, 
+            getActives: function(par,callback) { //活动管理列表
+                CommonService.getJsonData('api/Active/GetActives', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            getTools: function(par,callback) { //获客助手管理列表
+                CommonService.getJsonData('api/Tool/GetTools', par).then(function(data) {
+                    callback(data);
+                });
             }
         }
     });

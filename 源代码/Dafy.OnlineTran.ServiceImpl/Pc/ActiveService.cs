@@ -12,85 +12,76 @@ using XCode;
 namespace Dafy.OnlineTran.ServiceImpl.Pc
 {
     /// <summary>
-    /// 资讯管理实现类 
+    /// 活动管理实现类 
     /// 创建人：朱斌
     /// 创建时间：2017-05-01
     /// </summary>
-    public class ArticleService : IArticleService
+    public class ActiveService:IActiveService
     {
         /// <summary>
-        /// 资讯管理列表
+        /// 活动管理列表
         /// </summary>
         /// <param name="rq"></param>
         /// <returns></returns>
-        public ArticleListRS GetArticles(ArticleListRQ rq)
+
+        public ActiveListRS GetActives(ActiveListRQ rq)
         {
-            var result = new ArticleListRS { total = 0, list = null };
-            var sql = "select * from Article where 1=1 ";
+            var result = new ActiveListRS { total = 0, list = null };
+            var sql = "select * from Active where 1=1 "; 
             if (!string.IsNullOrWhiteSpace(rq.paraName))
             {
-                sql += string.Format(" and (ArticleTitle like '%{0}%' or ArticleType like '%{0}%') ", rq.paraName);
+                sql += string.Format(" and (Title like '%{0}%' or ContentUrl like '%{0}%') ", rq.paraName);
             }
-            var user = Article.FindAll(sql);
+            var user = Active.FindAll(sql);
             var query = (from a in user.ToList()
                          select new
                          {
-                             a.ArticleContent,
-                             a.ArticleImg,
-                             a.ArticleTitle,
-                             a.ArticleType,
+                             a.ContentUrl,
+                             a.ImageUrl,
+                             a.Title,
                              a.CreatedByName,
                              a.CreatedOn,
                              a.Id,
-                             a.IsPublish,
-                             a.IsRecommand,
                              a.ModifiedByName,
                              a.ModifiedOn,
-                             a.Status,
                          });
             query = query.OrderByDescending(q => q.ModifiedOn).ThenByDescending(q => q.Id);
             result.total = query.Count();
             if (result.total == 0) return result;
-            result.list = query.Select(a => new ArticleListItemRS
+            result.list = query.Select(a => new ActiveListItemRS
             {
-                Id=a.Id,
-                ArticleContent=a.ArticleContent,
-                ArticleImg=a.ArticleImg,
-                ArticleType=a.ArticleType,
-                ArticleTitle=a.ArticleTitle,
-                IsPublish=a.IsPublish,
-                IsRecommand=a.IsRecommand,
-                Status=a.Status,
-                CreatedOn=a.CreatedOn,
-                CreatedByName=a.CreatedByName
+                ContentUrl=a.ContentUrl,
+                ImageUrl=a.ImageUrl,
+                Title=a.Title,
+                Id = a.Id,
+                ModifiedByName=a.ModifiedByName,
+                ModifiedOn=a.ModifiedOn,
+                CreatedOn = a.CreatedOn,
+                CreatedByName = a.CreatedByName
             }).Skip((rq.pageIndex - 1) * rq.pageSize).Take(rq.pageSize).ToList();
             return result;
         }
 
         /// <summary>
-        /// 保存资讯信息
+        /// 保存活动信息
         /// </summary>
         /// <param name="rq"></param>
         /// <returns></returns>
-        public ResultModel<string> SaveArticles(SaveArticleRQ rq)
+        public ResultModel<string> SaveActives(SaveActiveRQ rq)
         {
-            EntityList<Article> users = new EntityList<Article>();
-            var user = Article.FindById(rq.Id);
+            EntityList<Active> users = new EntityList<Active>();
+            var user = Active.FindById(rq.Id);
             if (null == user)
             {
-                user = new Article();
+                user = new Active();
                 user.CreatedByName = rq.CreatedByName;
                 user.CreatedOn = DateTime.Now;
             }
-            user.ArticleContent = rq.ArticleContent;
-            user.ArticleImg=rq.ArticleImg;
-            user.ArticleTitle = rq.ArticleTitle;
-            user.ArticleType = rq.ArticleType;
-            user.IsPublish = rq.IsPublish;
-            user.IsRecommand = rq.IsRecommand;
+            user.ContentUrl = rq.ContentUrl;
+            user.ImageUrl=rq.ImageUrl;
+            user.Title=rq.Title;
             user.ModifiedByName = rq.CreatedByName;
             user.ModifiedOn = DateTime.Now;
-            user.Status = rq.Status;
             users.Add(user);
             int nCount = users.Save();
             return new ResultModel<string>

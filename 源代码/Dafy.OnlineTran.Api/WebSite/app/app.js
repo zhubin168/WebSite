@@ -273,6 +273,50 @@ define([
 		                return "coursesCtrl";
 		            }
 		    }))
+             
+               .state('home.getActives', angularAMD.route({ //活动管理列表
+		            url: '/getActives',
+		            templateUrl: 'templates/account/getActives.html',
+		            resolve: {
+		                loadController: ['$q', '$stateParams',
+		                    function($q, $stateParams) {
+		                        var accountCtrl = "app/controllers/account/accountCtr.js";
+		                        var accountService = "app/services/account/accountService.js";
+		
+		                        var deferred = $q.defer();
+		                        require([accountCtrl, accountService], function() {
+		                            deferred.resolve();
+		                        });
+		                        return deferred.promise;
+		                    }
+		                ]
+		            },
+		            controllerProvider: function($stateParams) {
+		                return "activesCtrl";
+		            }
+		    }))
+               
+                 .state('home.getTools', angularAMD.route({ //获客助手管理列表
+		            url: '/getTools',
+		            templateUrl: 'templates/account/getTools.html',
+		            resolve: {
+		                loadController: ['$q', '$stateParams',
+		                    function($q, $stateParams) {
+		                        var accountCtrl = "app/controllers/account/accountCtr.js";
+		                        var accountService = "app/services/account/accountService.js";
+		
+		                        var deferred = $q.defer();
+		                        require([accountCtrl, accountService], function() {
+		                            deferred.resolve();
+		                        });
+		                        return deferred.promise;
+		                    }
+		                ]
+		            },
+		            controllerProvider: function($stateParams) {
+		                return "toolsCtrl";
+		            }
+		    }))
     }]);
 
     return angularAMD.bootstrap(app);

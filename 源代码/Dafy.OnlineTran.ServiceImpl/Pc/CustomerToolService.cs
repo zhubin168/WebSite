@@ -12,85 +12,84 @@ using XCode;
 namespace Dafy.OnlineTran.ServiceImpl.Pc
 {
     /// <summary>
-    /// 资讯管理实现类 
+    /// 获客助手管理实现类 
     /// 创建人：朱斌
     /// 创建时间：2017-05-01
     /// </summary>
-    public class ArticleService : IArticleService
+    public class CustomerToolService : ICustomerToolService
     {
         /// <summary>
-        /// 资讯管理列表
+        /// 获客助手管理列表
         /// </summary>
         /// <param name="rq"></param>
         /// <returns></returns>
-        public ArticleListRS GetArticles(ArticleListRQ rq)
+        public CustomerToolsRS GetTools(CustomerToolsRQ rq)
         {
-            var result = new ArticleListRS { total = 0, list = null };
-            var sql = "select * from Article where 1=1 ";
+            var result = new CustomerToolsRS { total = 0, list = null };
+            var sql = "select * from CustomerTools where 1=1 ";
             if (!string.IsNullOrWhiteSpace(rq.paraName))
             {
-                sql += string.Format(" and (ArticleTitle like '%{0}%' or ArticleType like '%{0}%') ", rq.paraName);
+                sql += string.Format(" and Title like '%{0}%'", rq.paraName);
             }
-            var user = Article.FindAll(sql);
+            var user = CustomerTools.FindAll(sql);
             var query = (from a in user.ToList()
                          select new
                          {
-                             a.ArticleContent,
-                             a.ArticleImg,
-                             a.ArticleTitle,
-                             a.ArticleType,
+                             a.Id,
+                             a.ImgType,
+                             a.OrderNum,
+                             a.PublishTime,
+                             a.Status,
+                             a.ImageUrl,
+                             a.Title,
                              a.CreatedByName,
                              a.CreatedOn,
-                             a.Id,
-                             a.IsPublish,
-                             a.IsRecommand,
                              a.ModifiedByName,
                              a.ModifiedOn,
-                             a.Status,
                          });
             query = query.OrderByDescending(q => q.ModifiedOn).ThenByDescending(q => q.Id);
             result.total = query.Count();
             if (result.total == 0) return result;
-            result.list = query.Select(a => new ArticleListItemRS
+            result.list = query.Select(a => new CustomerToolsItemRS
             {
-                Id=a.Id,
-                ArticleContent=a.ArticleContent,
-                ArticleImg=a.ArticleImg,
-                ArticleType=a.ArticleType,
-                ArticleTitle=a.ArticleTitle,
-                IsPublish=a.IsPublish,
-                IsRecommand=a.IsRecommand,
+                Id = a.Id,
+                ImgType=a.ImgType,
+                OrderNum=a.OrderNum,
+                PublishTime=a.PublishTime,
                 Status=a.Status,
-                CreatedOn=a.CreatedOn,
-                CreatedByName=a.CreatedByName
+                ImageUrl = a.ImageUrl,
+                Title = a.Title,
+                ModifiedByName = a.ModifiedByName,
+                ModifiedOn = a.ModifiedOn,
+                CreatedOn = a.CreatedOn,
+                CreatedByName = a.CreatedByName
             }).Skip((rq.pageIndex - 1) * rq.pageSize).Take(rq.pageSize).ToList();
             return result;
         }
 
         /// <summary>
-        /// 保存资讯信息
+        /// 保存获客助手
         /// </summary>
         /// <param name="rq"></param>
         /// <returns></returns>
-        public ResultModel<string> SaveArticles(SaveArticleRQ rq)
+        public ResultModel<string> SaveTools(SaveCustomerToolsRQ rq)
         {
-            EntityList<Article> users = new EntityList<Article>();
-            var user = Article.FindById(rq.Id);
+            EntityList<CustomerTools> users = new EntityList<CustomerTools>();
+            var user = CustomerTools.FindById(rq.Id);
             if (null == user)
             {
-                user = new Article();
+                user = new CustomerTools();
                 user.CreatedByName = rq.CreatedByName;
                 user.CreatedOn = DateTime.Now;
             }
-            user.ArticleContent = rq.ArticleContent;
-            user.ArticleImg=rq.ArticleImg;
-            user.ArticleTitle = rq.ArticleTitle;
-            user.ArticleType = rq.ArticleType;
-            user.IsPublish = rq.IsPublish;
-            user.IsRecommand = rq.IsRecommand;
+            user.Status = rq.Status;
+            user.ImgType = rq.ImgType;
+            user.OrderNum = rq.OrderNum;
+            user.PublishTime = DateTime.Now;
+            user.ImageUrl = rq.ImageUrl;
+            user.Title = rq.Title;
             user.ModifiedByName = rq.CreatedByName;
             user.ModifiedOn = DateTime.Now;
-            user.Status = rq.Status;
             users.Add(user);
             int nCount = users.Save();
             return new ResultModel<string>

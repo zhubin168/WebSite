@@ -160,4 +160,54 @@ define(['app'], function(app) {
 				$rootScope.getCourses();
 			};	
 		}]);
+		
+		app.controller('activesCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
+            $scope.parm = {
+			"paraName":"",
+			"pageIndex": 1,
+			"pageSize": 10
+	        }		
+			//活动管理
+			$rootScope.getActives=function(){
+				AccountService.getActives($scope.parm,function(data){
+					    console.log(data);
+					    $scope.getActivesList = data.list;
+					    $scope.totalItems = data.total;
+				        $loading.finish("getActives");
+				        
+			    });
+			 }
+			$rootScope.getActives();
+			
+			//分页事件,获取当前的点击的页数
+			$scope.pageChanged = function() {
+				console.log($scope.parm.pageIndex);
+				$rootScope.getActives();
+			};	
+		}]);
+		
+		app.controller('toolsCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
+            $scope.parm = {
+			"paraName":"",
+			"pageIndex": 1,
+			"pageSize": 10
+	        }		
+			//活动管理
+			$rootScope.getTools=function(){
+				AccountService.getTools($scope.parm,function(data){
+					    console.log(data);
+					    $scope.getToolsList = data.list;
+					    $scope.totalItems = data.total;
+				        $loading.finish("getTools");
+				        
+			    });
+			 }
+			$rootScope.getTools();
+			
+			//分页事件,获取当前的点击的页数
+			$scope.pageChanged = function() {
+				console.log($scope.parm.pageIndex);
+				$rootScope.getTools();
+			};	
+		}]);
 });

@@ -15,40 +15,40 @@ using Dafy.OnlineTran.Common.Request;
 namespace GiveU.CollectionVisit.Web.Controllers
 {
     /// <summary>
-    /// 课程管理
+    /// 获客助手管理
     /// 创建人：朱斌
-    /// 创建时间：2017-04-30
+    /// 创建时间：2017-05-01
     /// </summary>
     [AllowAnonymous]
-    public class CourseController : AuthApiController
+    public class ToolController : AuthApiController
     {
-        private readonly ICourseService _service;
+        private readonly ICustomerToolService _service;
         /// <summary>
         /// 注入service
         /// </summary>
-        public CourseController(ICourseService service)
+        public ToolController(ICustomerToolService service)
         {
             _service = service;
         }
 
         /// <summary>
-        /// 课程管理列表
+        /// 获客助手管理列表
         /// </summary>
         [HttpPost]
-        public CourseListRS GetCourses(CourseListRQ rq)
+        public CustomerToolsRS GetTools(CustomerToolsRQ rq)
         {
             if (rq == null || rq.pageIndex <= 0 || rq.pageSize <= 0)
-                return new CourseListRS { total = 0, list = null };
-            return _service.GetCourses(rq);
+                return new CustomerToolsRS { total = 0, list = null };
+            return _service.GetTools(rq);
         }
 
         /// <summary>
-        /// 保存课程信息
+        /// 保存获客助手
         /// </summary>
         [HttpPost]
-        public ResultModel<string> SaveCourses(SaveCourseRQ rq)
+        public ResultModel<string> SaveTools(SaveCustomerToolsRQ rq)
         {
-            return _service.SaveCourses(rq);
+            return _service.SaveTools(rq);
         }
     }
 }

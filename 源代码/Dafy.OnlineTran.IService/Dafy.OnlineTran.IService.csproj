@@ -45,9 +45,11 @@
   <ItemGroup>
     <Compile Include="Pc\IAccountService.cs" />
     <Compile Include="IInitService.cs" />
+    <Compile Include="Pc\IActiveService.cs" />
     <Compile Include="Pc\IArticleService.cs" />
     <Compile Include="Pc\IConfigService.cs" />
     <Compile Include="Pc\ICourseService.cs" />
+    <Compile Include="Pc\ICustomerToolService.cs" />
     <Compile Include="Pc\IOrderService.cs" />
     <Compile Include="Pc\IProductService.cs" />
     <Compile Include="Pc\IUserService.cs" />
