@@ -26,12 +26,12 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
         public OrderListRS GetOrders(OrderListRQ rq)
         {
             var result = new OrderListRS { total = 0, list = null };
-            var sql = "select * from [Order] where 1=1 ";
+            var sql = string.Empty; //"select * from [Order] where 1=1 ";
             if (!string.IsNullOrWhiteSpace(rq.paraName))
             {
-                sql += string.Format(" and (ProName like '%{0}%' or ProductName like '%{0}%') ", rq.paraName);
+                sql += string.Format(" (ProName like '%{0}%' or ProductName like '%{0}%') ", rq.paraName);
             }
-            var user = Order.FindAll(sql);
+            var user = Order.FindAll(sql, "Id desc", null, (rq.pageIndex - 1) * rq.pageSize, rq.pageSize);
             var query = (from a in user.ToList()
                          select new
                          {
@@ -55,7 +55,7 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
                              a.ModifiedOn,
                          });
             query = query.OrderByDescending(q => q.ModifiedOn).ThenByDescending(q => q.Id);
-            result.total = query.Count();
+            result.total = Order.FindAll(sql, null, null, 0, 0).Count; //query.Count();
             if (result.total == 0) return result;
             result.list = query.Select(a => new OrderListItemRS
             {
@@ -77,7 +77,7 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
                 CreatedByName = a.CreatedByName,
                 ModifiedByName=a.ModifiedByName,
                 ModifiedOn=a.ModifiedOn
-            }).Skip((rq.pageIndex - 1) * rq.pageSize).Take(rq.pageSize).ToList();
+            }).ToList();
             return result;
         }
     }

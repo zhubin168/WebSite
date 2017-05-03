@@ -22,6 +22,8 @@ namespace Dafy.OnlineTran.IService.Pc
         /// <returns></returns>
         CustomerToolsRS GetTools(CustomerToolsRQ rq);
 
+        ResultModel<string> DelTools(SaveCustomerToolsRQ rq);
+
         /// <summary>
         /// 保存获客助手
         /// </summary>

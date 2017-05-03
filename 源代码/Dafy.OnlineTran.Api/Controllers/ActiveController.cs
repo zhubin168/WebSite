@@ -43,6 +43,15 @@ namespace GiveU.CollectionVisit.Web.Controllers
         }
 
         /// <summary>
+        /// 删除活动信息
+        /// </summary>
+        [HttpPost]
+        public ResultModel<string> DelActives(SaveActiveRQ rq)
+        {
+            return _service.DelActives(rq);
+        }
+
+        /// <summary>
         /// 保存活动信息
         /// </summary>
         [HttpPost]

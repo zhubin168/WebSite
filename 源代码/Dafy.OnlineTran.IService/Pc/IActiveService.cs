@@ -22,6 +22,8 @@ namespace Dafy.OnlineTran.IService.Pc
         /// <returns></returns>
         ActiveListRS GetActives(ActiveListRQ rq);
 
+        ResultModel<string> DelActives(SaveActiveRQ rq);
+
         /// <summary>
         /// 保存活动信息
         /// </summary>

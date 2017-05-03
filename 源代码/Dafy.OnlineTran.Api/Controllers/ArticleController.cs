@@ -43,6 +43,15 @@ namespace GiveU.CollectionVisit.Web.Controllers
         }
 
         /// <summary>
+        /// 删除资讯信息
+        /// </summary>
+        [HttpPost]
+        public ResultModel<string> DelArticles(SaveArticleRQ rq)
+        {
+            return _service.DelArticles(rq);
+        }
+
+        /// <summary>
         /// 保存资讯信息
         /// </summary>
         [HttpPost]

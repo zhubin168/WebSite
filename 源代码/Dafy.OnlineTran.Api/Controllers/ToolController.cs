@@ -43,6 +43,15 @@ namespace GiveU.CollectionVisit.Web.Controllers
         }
 
         /// <summary>
+        /// 删除获客助手
+        /// </summary>
+        [HttpPost]
+        public ResultModel<string> DelTools(SaveCustomerToolsRQ rq)
+        {
+            return _service.DelTools(rq);
+        }
+
+        /// <summary>
         /// 保存获客助手
         /// </summary>
         [HttpPost]

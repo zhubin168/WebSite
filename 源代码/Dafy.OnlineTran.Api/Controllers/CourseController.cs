@@ -43,6 +43,15 @@ namespace GiveU.CollectionVisit.Web.Controllers
         }
 
         /// <summary>
+        /// 删除课程信息
+        /// </summary>
+        [HttpPost]
+        public ResultModel<string> DelCourses(SaveCourseRQ rq)
+        {
+            return _service.DelCourses(rq);
+        }
+
+        /// <summary>
         /// 保存课程信息
         /// </summary>
         [HttpPost]

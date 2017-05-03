@@ -27,12 +27,12 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
         public ActiveListRS GetActives(ActiveListRQ rq)
         {
             var result = new ActiveListRS { total = 0, list = null };
-            var sql = "select * from Active where 1=1 "; 
+            var sql = string.Empty;//"select * from Active where 1=1 "; 
             if (!string.IsNullOrWhiteSpace(rq.paraName))
             {
-                sql += string.Format(" and (Title like '%{0}%' or ContentUrl like '%{0}%') ", rq.paraName);
+                sql += string.Format(" (Title like '%{0}%' or ContentUrl like '%{0}%') ", rq.paraName);
             }
-            var user = Active.FindAll(sql);
+            var user = Active.FindAll(sql, "Id desc", null, (rq.pageIndex - 1) * rq.pageSize, rq.pageSize);
             var query = (from a in user.ToList()
                          select new
                          {
@@ -46,7 +46,7 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
                              a.ModifiedOn,
                          });
             query = query.OrderByDescending(q => q.ModifiedOn).ThenByDescending(q => q.Id);
-            result.total = query.Count();
+            result.total = Active.FindAll(sql, null, null, 0, 0).Count;//query.Count();
             if (result.total == 0) return result;
             result.list = query.Select(a => new ActiveListItemRS
             {
@@ -58,8 +58,20 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
                 ModifiedOn=a.ModifiedOn,
                 CreatedOn = a.CreatedOn,
                 CreatedByName = a.CreatedByName
-            }).Skip((rq.pageIndex - 1) * rq.pageSize).Take(rq.pageSize).ToList();
+            }).ToList();
             return result;
+        }
+
+        public ResultModel<string> DelActives(SaveActiveRQ rq)
+        {
+            var obj = Active.FindById(rq.Id);
+            int nCount = obj.Delete();
+            return new ResultModel<string>
+            {
+                state = nCount,
+                message = nCount > 0 ? "删除成功！" : "操作失败！",
+                data = nCount.ToString()
+            };
         }
 
         /// <summary>

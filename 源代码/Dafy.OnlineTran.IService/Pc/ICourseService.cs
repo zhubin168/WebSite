@@ -22,6 +22,8 @@ namespace Dafy.OnlineTran.IService.Pc
         /// <returns></returns>
         CourseListRS GetCourses(CourseListRQ rq);
 
+        ResultModel<string> DelCourses(SaveCourseRQ rq);
+
         /// <summary>
         /// 保存课程信息
         /// </summary>

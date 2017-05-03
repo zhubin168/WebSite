@@ -22,6 +22,8 @@ namespace Dafy.OnlineTran.IService.Pc
         /// <returns></returns>
         ProductListRS GetProducts(ProductListRQ rq);
 
+        ResultModel<string> DelProducts(SaveProductRQ rq);
+
         /// <summary>
         /// 保存产品信息
         /// </summary>

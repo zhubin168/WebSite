@@ -27,12 +27,12 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
         public CourseListRS GetCourses(CourseListRQ rq)
         {
             var result = new CourseListRS { total = 0, list = null };
-            var sql = "select * from Course where 1=1 ";
+            var sql = string.Empty; //"select * from Course where 1=1 ";
             if (!string.IsNullOrWhiteSpace(rq.paraName))
             {
-                sql += string.Format(" and (Name like '%{0}%' or Title like '%{0}%') ", rq.paraName);
+                sql += string.Format(" (Name like '%{0}%' or Title like '%{0}%') ", rq.paraName);
             }
-            var user = Course.FindAll(sql);
+            var user = Course.FindAll(sql, "Id desc", null, (rq.pageIndex - 1) * rq.pageSize, rq.pageSize);
             var query = (from a in user.ToList()
                          select new
                          {
@@ -49,7 +49,7 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
                              a.Status,
                          });
             query = query.OrderByDescending(q => q.ModifiedOn).ThenByDescending(q => q.Id);
-            result.total = query.Count();
+            result.total = Course.FindAll(sql, null, null, 0, 0).Count; //query.Count();
             if (result.total == 0) return result;
             result.list = query.Select(a => new CourseListItemRS
             {
@@ -64,8 +64,20 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
                 Status = a.Status,
                 CreatedOn = a.CreatedOn,
                 CreatedByName = a.CreatedByName
-            }).Skip((rq.pageIndex - 1) * rq.pageSize).Take(rq.pageSize).ToList();
+            }).ToList();
             return result;
+        }
+
+        public ResultModel<string> DelCourses(SaveCourseRQ rq)
+        {
+            var obj = Course.FindById(rq.Id);
+            int nCount = obj.Delete();
+            return new ResultModel<string>
+            {
+                state = nCount,
+                message = nCount > 0 ? "删除成功！" : "操作失败！",
+                data = nCount.ToString()
+            };
         }
 
         /// <summary>

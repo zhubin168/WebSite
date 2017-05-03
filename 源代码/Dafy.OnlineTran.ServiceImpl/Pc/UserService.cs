@@ -28,12 +28,12 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
         public WeixinUserRS GetUsers(WeixinUserRQ rq)
         {
             var result = new WeixinUserRS { total = 0, list = null };
-            var sql = "select * from Wexin_User where 1=1 ";
+            var sql = string.Empty;//"select * from Wexin_User where 1=1 ";
             if (!string.IsNullOrWhiteSpace(rq.paraName))
             {
-                sql += string.Format(" and (Username like '%{0}%' or TelePhone like '%{0}%') ", rq.paraName);
+                sql += string.Format(" (Username like '%{0}%' or TelePhone like '%{0}%') ", rq.paraName);
             }
-            var user = Wexin_User.FindAll(sql);
+            var user = Wexin_User.FindAll(sql, "Id desc", null, (rq.pageIndex - 1) * rq.pageSize, rq.pageSize);
             var query = (from a in user.ToList()
                              select new
                              {
@@ -56,7 +56,7 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
                                  a.Username,
                              }); 
                 query = query.OrderByDescending(q => q.Id).ThenByDescending(q => q.LoginTime);
-                result.total = query.Count();
+                result.total = Wexin_User.FindAll(sql, null, null, 0, 0).Count; //query.Count();
                 if (result.total == 0) return result;
                 result.list = query.Select(a => new WeixinUserItemRS
                 {
@@ -78,8 +78,20 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
                     //Unionid = a.Unionid,
                     Username = a.Username,
 
-                }).Skip((rq.pageIndex - 1) * rq.pageSize).Take(rq.pageSize).ToList();
+                }).ToList();
                 return result;
+        }
+
+        public ResultModel<string> DelUsers(UpdateWeixinUserRQ rq)
+        {
+            var user = Wexin_User.FindById(rq.Id);
+            int nCount = user.Delete();
+            return new ResultModel<string>
+            {
+                state = nCount,
+                message = nCount > 0 ? "删除成功！" : "操作失败！",
+                data = nCount.ToString()
+            };
         }
 
         /// <summary>

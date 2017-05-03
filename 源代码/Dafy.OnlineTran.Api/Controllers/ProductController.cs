@@ -43,6 +43,15 @@ namespace GiveU.CollectionVisit.Web.Controllers
         }
 
         /// <summary>
+        /// 删除产品信息
+        /// </summary>
+        [HttpPost]
+        public ResultModel<string> DelProducts(SaveProductRQ rq)
+        {
+            return _service.DelProducts(rq);
+        }
+
+        /// <summary>
         /// 保存产品信息
         /// </summary>
         [HttpPost]

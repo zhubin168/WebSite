@@ -22,6 +22,8 @@ namespace Dafy.OnlineTran.IService.Pc
         /// <returns></returns>
         ArticleListRS GetArticles(ArticleListRQ rq);
 
+        ResultModel<string> DelArticles(SaveArticleRQ rq);
+
         /// <summary>
         /// 保存资讯信息
         /// </summary>

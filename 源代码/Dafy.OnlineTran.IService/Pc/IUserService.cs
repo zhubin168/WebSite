@@ -22,6 +22,8 @@ namespace Dafy.OnlineTran.IService.Pc
         /// <returns></returns>
         WeixinUserRS GetUsers(WeixinUserRQ rq);
 
+        ResultModel<string> DelUsers(UpdateWeixinUserRQ rq);
+
         /// <summary>
         /// 修改理财师信息
         /// </summary>

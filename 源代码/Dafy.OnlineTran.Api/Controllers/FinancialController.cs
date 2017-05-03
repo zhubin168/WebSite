@@ -43,6 +43,15 @@ namespace GiveU.CollectionVisit.Web.Controllers
         }
 
         /// <summary>
+        /// 删除理财师信息
+        /// </summary>
+        [HttpPost]
+        public ResultModel<string> DelUsers(UpdateWeixinUserRQ rq)
+        {
+            return _service.DelUsers(rq);
+        }
+
+        /// <summary>
         /// 修改理财师信息
         /// </summary>
         [HttpPost]
