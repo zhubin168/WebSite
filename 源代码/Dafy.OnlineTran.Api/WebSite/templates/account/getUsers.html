@@ -12,10 +12,7 @@
 				<div class="col-md-3">
 					<button class="btn btn-primary" ng-click="getUsers()"> 
 			          <span class="glyphicon glyphicon-search"></span>搜索 
-			       </button>
-			        <button class="btn btn-success" ng-click="editConfigs(-1)">
-			          <span class="glyphicon glyphicon-plus"></span>新增
-			        </button>
+			      </button>
 				</div>
 			</div>
 		</div>
@@ -49,7 +46,7 @@
 				    <td>{{item.telePhone}}</td>
 					<td>
 						<button class="btn btn-primary btn-sm" ng-click="editConfigs($index)">设置 <span class="glyphicon glyphicon-pencil"></span> </button>
-					    <button mwl-confirm class="btn btn-danger btn-sm" ng-click="delConfigs(item.id)">删除 <span class="glyphicon glyphicon-remove"></span> </button>
+					    <button mwl-confirm class="btn btn-danger btn-sm" ng-click="delUsers(item.id)">删除 <span class="glyphicon glyphicon-remove"></span> </button>
 					</td>
 				</tr>
 			</tbody>

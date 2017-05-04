@@ -59,6 +59,18 @@ define(['app'], function(app) {
 				console.log($scope.parm.pageIndex);
 				$rootScope.getUsers();
 			};	
+			
+			//删除
+			$scope.delUsers = function(id){
+				var parm = {"id":id}
+				var comfirm =confirm("是否确认删除该行？");
+	           	  if(comfirm){
+					  AccountService.delUsers (parm, function(data) {
+					  	     toastr.success(data.message);
+					  	     $rootScope.getUsers();
+					    })
+				   }
+			}
 		}]);
 		
 		app.controller('articlesCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
@@ -84,6 +96,18 @@ define(['app'], function(app) {
 				console.log($scope.parm.pageIndex);
 				$rootScope.getArticles();
 			};	
+			
+			//删除
+			$scope.delArticles = function(id){
+				var parm = {"id":id}
+				var comfirm =confirm("是否确认删除该行？");
+	           	  if(comfirm){
+					  AccountService.delArticles (parm, function(data) {
+					  	     toastr.success(data.message);
+					  	     $rootScope.getArticles();
+					    })
+				   }
+			}
 		}]);
 		
 		app.controller('ordersCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
@@ -108,7 +132,19 @@ define(['app'], function(app) {
 			$scope.pageChanged = function() {
 				console.log($scope.parm.pageIndex);
 				$rootScope.getOrders();
-			};	
+			};
+			
+			//删除
+			$scope.delOrders = function(id){
+				var parm = {"id":id}
+				var comfirm =confirm("是否确认删除该行？");
+	           	  if(comfirm){
+					  AccountService.delOrders (parm, function(data) {
+					  	     toastr.success(data.message);
+					  	     $rootScope.getOrders();
+					    })
+				   }
+			}
 		}]);
 		
 		app.controller('productsCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
@@ -134,6 +170,18 @@ define(['app'], function(app) {
 				console.log($scope.parm.pageIndex);
 				$rootScope.getProducts();
 			};	
+			
+		    //删除
+			$scope.delProducts = function(id){
+				var parm = {"id":id}
+				var comfirm =confirm("是否确认删除该行？");
+	           	  if(comfirm){
+					  AccountService.delProducts (parm, function(data) {
+					  	     toastr.success(data.message);
+					  	     $rootScope.getProducts();
+					    })
+				   }
+			}
 		}]);
 		
 		app.controller('coursesCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
@@ -159,6 +207,18 @@ define(['app'], function(app) {
 				console.log($scope.parm.pageIndex);
 				$rootScope.getCourses();
 			};	
+			
+			//删除
+			$scope.delCourses = function(id){
+				var parm = {"id":id}
+				var comfirm =confirm("是否确认删除该行？");
+	           	  if(comfirm){
+					  AccountService.delCourses (parm, function(data) {
+					  	     toastr.success(data.message);
+					  	     $rootScope.getCourses();
+					    })
+				   }
+			}
 		}]);
 		
 		app.controller('activesCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
@@ -184,6 +244,17 @@ define(['app'], function(app) {
 				console.log($scope.parm.pageIndex);
 				$rootScope.getActives();
 			};	
+			//删除
+			$scope.delActives = function(id){
+				var parm = {"id":id}
+				var comfirm =confirm("是否确认删除该行？");
+	           	  if(comfirm){
+					  AccountService.delActives (parm, function(data) {
+					  	     toastr.success(data.message);
+					  	     $rootScope.getActives();
+					    })
+				   }
+			}
 		}]);
 		
 		app.controller('toolsCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
@@ -209,5 +280,16 @@ define(['app'], function(app) {
 				console.log($scope.parm.pageIndex);
 				$rootScope.getTools();
 			};	
+			//删除
+			$scope.delTools = function(id){
+				var parm = {"id":id}
+				var comfirm =confirm("是否确认删除该行？");
+	           	  if(comfirm){
+					  AccountService.delTools (parm, function(data) {
+					  	     toastr.success(data.message);
+					  	     $rootScope.getTools();
+					    })
+				   }
+			}
 		}]);
 });

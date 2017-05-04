@@ -21,5 +21,12 @@ namespace Dafy.OnlineTran.IService.Pc
         /// <param name="rq"></param>
         /// <returns></returns>
         OrderListRS GetOrders(OrderListRQ rq);
+
+        /// <summary>
+        /// 删除订单
+        /// </summary>
+        /// <param name="rq"></param>
+        /// <returns></returns>
+        ResultModel<string> DelOrders(DelParameterRQ rq);
     }
 }

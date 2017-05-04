@@ -62,6 +62,46 @@ define([
                 CommonService.getJsonData('api/Tool/GetTools', par).then(function(data) {
                     callback(data);
                 });
+            }, 
+            delActives: function(par,callback) { //删除活动
+                CommonService.getJsonData('api/Active/DelActives', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            delArticles: function(par,callback) { //删除文章
+                CommonService.getJsonData('api/Article/DelArticles', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            delConfig: function(par,callback) { //删除字典
+                CommonService.getJsonData('api/Config/DeleteConfig', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            delCourses: function(par,callback) { //删除课程
+                CommonService.getJsonData('api/Course/DelCourses', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            delUsers: function(par,callback) { //删除用户
+                CommonService.getJsonData('api/Financial/DelUsers', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            delProducts: function(par,callback) { //删除产品
+                CommonService.getJsonData('api/Product/DelProducts', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            delTools: function(par,callback) { //删除助手
+                CommonService.getJsonData('api/Tool/DelTools', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            delOrders: function(par,callback) { //删除订单
+                CommonService.getJsonData('api/Order/DelOrders', par).then(function(data) {
+                    callback(data);
+                });
             }
         }
     });

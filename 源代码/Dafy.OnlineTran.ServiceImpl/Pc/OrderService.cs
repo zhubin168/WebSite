@@ -80,5 +80,22 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
             }).ToList();
             return result;
         }
+
+        /// <summary>
+        /// 删除订单
+        /// </summary>
+        /// <param name="rq"></param>
+        /// <returns></returns>
+        public ResultModel<string> DelOrders(DelParameterRQ rq)
+        {
+            var obj = Order.FindById(rq.id);
+            int nCount = obj.Delete();
+            return new ResultModel<string>
+            {
+                state = nCount,
+                message = nCount > 0 ? "删除成功！" : "操作失败！",
+                data = nCount.ToString()
+            };
+        }
     }
 }

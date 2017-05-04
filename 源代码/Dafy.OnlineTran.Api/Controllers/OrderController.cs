@@ -41,5 +41,14 @@ namespace GiveU.CollectionVisit.Web.Controllers
                 return new OrderListRS { total = 0, list = null };
             return _service.GetOrders(rq);
         }
+
+        /// <summary>
+        /// 删除订单信息
+        /// </summary>
+        [HttpPost]
+        public ResultModel<string> DelOrders(DelParameterRQ rq)
+        {
+            return _service.DelOrders(rq);
+        }
     }
 }
