@@ -46,5 +46,6 @@ namespace Dafy.OnlineTran.Common.Request
 
         /// <summary>状态(0：未激活  1：激活失败 2：已启用  3：已停用 4：已删除)</summary>
         public int Status { get; set; }
+        public string CreatedByName { get; set; }
     }
 }

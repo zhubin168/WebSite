@@ -87,7 +87,30 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
         /// <returns></returns>
         public ResultModel<string> SaveCourses(SaveCourseRQ rq)
         {
-            throw new NotImplementedException();
+            EntityList<Course> users = new EntityList<Course>();
+            var user = Course.FindById(rq.Id);
+            if (null == user)
+            {
+                user = new Course();
+                user.CreatedByName = rq.CreatedByName;
+                user.CreatedOn = DateTime.Now;
+            }
+            user.Conent = rq.Conent;
+            user.ImageUrl = rq.ImageUrl;
+            user.IsRecomand = rq.IsRecomand;
+            user.Name = rq.Name;
+            user.Title = rq.Title;
+            user.ModifiedByName = rq.CreatedByName;
+            user.ModifiedOn = DateTime.Now;
+            user.Status = rq.Status;
+            users.Add(user);
+            int nCount = users.Save();
+            return new ResultModel<string>
+            {
+                state = nCount,
+                message = nCount > 0 ? "保存成功！" : "操作失败！",
+                data = nCount.ToString()
+            };
         }
     }
 }

@@ -102,6 +102,36 @@ define([
                 CommonService.getJsonData('api/Order/DelOrders', par).then(function(data) {
                     callback(data);
                 });
+            }, 
+            saveActives: function(par,callback) { //保存活动信息
+                CommonService.getJsonData('api/Active/SaveActives', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            saveArticles: function(par,callback) { //保存资讯信息
+                CommonService.getJsonData('api/Article/SaveArticles', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            saveCourses: function(par,callback) { //保存课程信息
+                CommonService.getJsonData('api/Course/SaveCourses', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            saveUsers: function(par,callback) { //修改用户信息
+                CommonService.getJsonData('api/Financial/SaveUsers', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            saveProducts: function(par,callback) { //保存产品信息
+                CommonService.getJsonData('api/Product/SaveProducts', par).then(function(data) {
+                    callback(data);
+                });
+            }, 
+            saveTools: function(par,callback) { //保存获客助手
+                CommonService.getJsonData('api/Tool/SaveTools', par).then(function(data) {
+                    callback(data);
+                });
             }
         }
     });

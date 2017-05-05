@@ -69,7 +69,7 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
                 ProAge=a.ProAge,
                 ProCase=a.ProCase,
                 ProDoc=a.ProDoc,
-                ProName=a.CreatedByName,
+                ProName=a.ProName,
                 ProPlan=a.ProPlan,
                 ProType=a.ProType,
                 ProUse=a.ProUse,
@@ -102,7 +102,38 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
         /// <returns></returns>
         public ResultModel<string> SaveProducts(SaveProductRQ rq)
         {
-            throw new NotImplementedException();
+            EntityList<Product> users = new EntityList<Product>();
+            var user = Product.FindById(rq.Id);
+            if (null == user)
+            {
+                user = new Product();
+                user.CreatedByName = rq.CreatedByName;
+                user.CreatedOn = DateTime.Now;
+            }
+            user.Banner = rq.Banner;
+            user.IsHot = rq.IsHot;
+            user.Logo = rq.Logo;
+            user.Price = rq.Price;
+            user.ProAge = rq.ProAge;
+            user.ProCase = rq.ProCase;
+            user.ProDoc = rq.ProDoc;
+            user.ProName = rq.ProName;
+            user.ProPlan = rq.ProPlan;
+            user.ProType = rq.ProType;
+            user.ProUse = rq.ProUse;
+            user.WhyChoose = rq.WhyChoose;
+            user.Status = rq.Status;
+            user.ModifiedByName = rq.CreatedByName;
+            user.ModifiedOn = DateTime.Now;
+            user.Status = rq.Status;
+            users.Add(user);
+            int nCount = users.Save();
+            return new ResultModel<string>
+            {
+                state = nCount,
+                message = nCount > 0 ? "保存成功！" : "操作失败！",
+                data = nCount.ToString()
+            };
         }
     }
 }
