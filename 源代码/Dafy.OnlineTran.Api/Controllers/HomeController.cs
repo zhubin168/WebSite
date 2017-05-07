@@ -127,5 +127,29 @@ namespace Dafy.OnlineTran.Api.Controllers
                 menuAdminList = menuAdminList
             };
         }
+
+        /// <summary>
+        /// 找回密码
+        /// </summary>
+        [HttpPost]
+        [AllowAnonymous]
+        public ResultModel<string> FindPassword(FindPasswordRQ rq)
+        {
+            var resultModel = new ResultModel<string>
+            {
+                state = 0,
+                message = "",
+                data = "-1"
+            };
+            var result = _service.FindPassword(rq);
+            if (result)
+            {
+                resultModel.state = 1;
+                resultModel.message = "设置成功";
+                return resultModel;
+            }
+            resultModel.message = "找不到该用户";
+            return resultModel;
+        }
     }
 }

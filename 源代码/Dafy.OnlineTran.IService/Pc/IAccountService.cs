@@ -16,5 +16,12 @@ namespace Dafy.OnlineTran.IService.Pc
         /// <param name="loginRQ"></param>
         /// <returns></returns>
         SysUserList Login(LoginRQ loginRQ);
+
+        /// <summary>
+        /// 找回密码
+        /// </summary>
+        /// <param name="rq"></param>
+        /// <returns></returns>
+        bool FindPassword(FindPasswordRQ rq);
     }
 }

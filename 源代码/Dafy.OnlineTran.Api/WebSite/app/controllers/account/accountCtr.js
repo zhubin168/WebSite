@@ -35,7 +35,34 @@ define(['app'], function(app) {
 
             };
 		}]);
-		
+		 //忘记密码
+		app.controller('forgetPwdCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','CommonService','UtilService','toastr','$interval', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,CommonService,UtilService,toastr,$interval){
+	        $scope.forgetPwd =function(user){
+	        	if(UtilService.isNull(user.saleId)  || user==undefined) {
+			        	toastr.warning("请输入用户名");
+						return;
+					}else if(UtilService.isNull(user.phone)) {
+						toastr.warning('请输入手机号码!');
+						return;
+					} else if(UtilService.isMobile(user.phone)) {
+						toastr.warning('手机格式号码错误,请重新输入!');
+						return;
+					}else if(UtilService.isNull(user.newPassword)) {
+						toastr.warning('请输入新密码!');
+						return;
+					}
+			    $loading.start("forgetPwd");
+	        	AccountService.findPassword(user,function(data){
+					  if(data != null && data.state == 1) {
+			        		toastr.success(data.message);
+			        		$loading.finish("forgetPwd");
+			        	}else{
+			        		toastr.warning(data.message);
+			        		$loading.finish("forgetPwd");
+			        	}
+	        	})
+	        }		
+		}]);
      app.controller('weixinUserCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
             $scope.parm = {
 			"paraName":"",

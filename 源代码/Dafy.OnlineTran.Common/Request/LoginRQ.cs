@@ -17,4 +17,23 @@ namespace Dafy.OnlineTran.Common.Request
         /// </summary>
         public string password { get; set; }
     }
+
+    /// <summary>
+    /// 找回密码
+    /// </summary>
+    public class FindPasswordRQ
+    {
+        /// <summary>
+        /// 新密码
+        /// </summary>
+        public string newPassword { get; set; }
+        /// <summary>
+        /// 工号
+        /// </summary>
+        public string saleId { get; set; }
+        /// <summary>
+        /// 手机号码
+        /// </summary>
+        public string phone { get; set; }
+    }
 }

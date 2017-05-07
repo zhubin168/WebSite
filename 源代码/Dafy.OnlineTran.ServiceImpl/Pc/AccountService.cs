@@ -47,5 +47,23 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
                 Username=data.Username
             };
         }
+
+        /// <summary>
+        /// 找回密码
+        /// </summary>
+        /// <param name="rq"></param>
+        /// <returns></returns>
+        public bool FindPassword(FindPasswordRQ rq)
+        {
+            var newEncryptedPassword = DesCryptoUtil.Encrypt(rq.newPassword);
+            var user = Wexin_User.Find(new string[] { Wexin_User._.Username, Wexin_User._.TelePhone }, new string[] { rq.saleId, rq.phone });
+            if (user == null || user.Id <= 0)
+            {
+                return false;
+            }
+            user.Password = newEncryptedPassword;
+            int flag=user.Update();
+            return flag > 0 ? true : false;
+        }
     }
 }

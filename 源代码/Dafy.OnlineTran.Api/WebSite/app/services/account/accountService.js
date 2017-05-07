@@ -19,7 +19,7 @@ define([
                 });
             },
             findPassword: function(par,callback) { //忘记密码
-                CommonService.getJsonData('api/home/findPassword', par).then(function(data) {
+                CommonService.getJsonData('api/home/FindPassword', par).then(function(data) {
                     callback(data);
                 });
             },
