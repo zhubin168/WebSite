@@ -132,6 +132,11 @@ define([
                 CommonService.getJsonData('api/Tool/SaveTools', par).then(function(data) {
                     callback(data);
                 });
+            }, 
+            uploadImg: function(par,file, callback) { //上传模板
+                CommonService.uploadFile('api/Common/UploadImg',file,par).then(function(data) {
+                    callback(data);
+                });
             }
         }
     });

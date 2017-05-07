@@ -204,7 +204,7 @@ define(['app'], function(app) {
 		
 	     //保存资讯
 		 app.controller('saveArticlesCtrl',['$uibModalInstance','$scope','$state','$rootScope','$loading','UtilService','AccountService','configItem','Settings','toastr', function($uibModalInstance, $scope, $state, $rootScope,$loading ,UtilService,AccountService, configItem,Settings, toastr) {
-				
+				   console.log(configItem);
 				$scope.configItem = configItem;
 				$scope.ok = function() {
 					console.log(JSON.stringify($scope.configItem));
@@ -224,6 +224,22 @@ define(['app'], function(app) {
 						$uibModalInstance.dismiss('cancel'); // 退出
 						$rootScope.getArticles();
 				}
+				
+				//文件上传
+	            $scope.uploadPlanImg = function (file) {
+	            	console.log(file);
+	            	$loading.start("upLoadTrainImg");
+	                AccountService.uploadImg({}, file, function(data) {
+	                	    console.log(data);
+					        if (data.state != 0) {
+		                    	var photoUrl=data.data;
+				                $scope.configItem.articleImg="http://"+photoUrl;
+					        }else{
+					            toastr.warning(data.message);
+					        }
+					        $loading.finish("upLoadTrainImg");
+		               });
+	            };		
 		  }]);
 		app.controller('ordersCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
             $scope.parm = {
@@ -354,6 +370,22 @@ define(['app'], function(app) {
 						$uibModalInstance.dismiss('cancel'); // 退出
 						$rootScope.getProducts();
 				}
+				
+				//文件上传
+	            $scope.uploadPlanImg = function (file) {
+	            	console.log(file);
+	            	$loading.start("upLoadTrainImg");
+	                AccountService.uploadImg({}, file, function(data) {
+	                	    console.log(data);
+					        if (data.state != 0) {
+		                    	var photoUrl=data.data;
+				                $scope.configItem.banner="http://"+photoUrl;
+					        }else{
+					            toastr.warning(data.message);
+					        }
+					        $loading.finish("upLoadTrainImg");
+		               });
+	            };	
 		  }]);
 		
 		app.controller('coursesCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
@@ -441,6 +473,22 @@ define(['app'], function(app) {
 						$uibModalInstance.dismiss('cancel'); // 退出
 						$rootScope.getCourses();
 				}
+				
+				//文件上传
+	            $scope.uploadPlanImg = function (file) {
+	            	console.log(file);
+	            	$loading.start("upLoadTrainImg");
+	                AccountService.uploadImg({}, file, function(data) {
+	                	    console.log(data);
+					        if (data.state != 0) {
+		                    	var photoUrl=data.data;
+				                $scope.configItem.imageUrl="http://"+photoUrl;
+					        }else{
+					            toastr.warning(data.message);
+					        }
+					        $loading.finish("upLoadTrainImg");
+		               });
+	            };	
 		  }]);
 		
 		app.controller('activesCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
@@ -524,6 +572,21 @@ define(['app'], function(app) {
 						$uibModalInstance.dismiss('cancel'); // 退出
 						$rootScope.getActives();
 				}
+				//文件上传
+	            $scope.uploadPlanImg = function (file) {
+	            	console.log(file);
+	            	$loading.start("upLoadTrainImg");
+	                AccountService.uploadImg({}, file, function(data) {
+	                	    console.log(data);
+					        if (data.state != 0) {
+		                    	var photoUrl=data.data;
+				                $scope.configItem.imageUrl="http://"+photoUrl;
+					        }else{
+					            toastr.warning(data.message);
+					        }
+					        $loading.finish("upLoadTrainImg");
+		               });
+	            };
 		  }]);
 			
 		app.controller('toolsCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
@@ -608,5 +671,20 @@ define(['app'], function(app) {
 						$uibModalInstance.dismiss('cancel'); // 退出
 						$rootScope.getTools();
 				}
+				//文件上传
+	            $scope.uploadPlanImg = function (file) {
+	            	console.log(file);
+	            	$loading.start("upLoadTrainImg");
+	                AccountService.uploadImg({}, file, function(data) {
+	                	    console.log(data);
+					        if (data.state != 0) {
+		                    	var photoUrl=data.data;
+				                $scope.configItem.imageUrl="http://"+photoUrl;
+					        }else{
+					            toastr.warning(data.message);
+					        }
+					        $loading.finish("upLoadTrainImg");
+		               });
+	            };
 		  }]);
 });

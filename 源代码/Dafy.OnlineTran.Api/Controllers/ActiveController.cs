@@ -57,6 +57,7 @@ namespace GiveU.CollectionVisit.Web.Controllers
         [HttpPost]
         public ResultModel<string> SaveActives(SaveActiveRQ rq)
         {
+            rq.CreatedByName= this.User.Identity.Name;
             return _service.SaveActives(rq);
         }
     }

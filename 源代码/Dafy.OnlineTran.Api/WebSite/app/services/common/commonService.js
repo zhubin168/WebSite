@@ -106,7 +106,7 @@ define(['angular'], function(angular) {
 	                    deferred.resolve(data);
 	                }).error(function (data, status, headers, config) {
 	                    //上传失败
-	                    console.log('error status: ' + status);
+	                    console.log('error status: ' + status+data);
 	                });
 	                return deferred.promise;
 	            },

@@ -57,6 +57,7 @@ namespace GiveU.CollectionVisit.Web.Controllers
         [HttpPost]
         public ResultModel<string> SaveProducts(SaveProductRQ rq)
         {
+            rq.CreatedByName = this.User.Identity.Name;
             return _service.SaveProducts(rq);
         }
     }
