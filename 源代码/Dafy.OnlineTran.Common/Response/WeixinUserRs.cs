@@ -51,5 +51,29 @@ namespace Dafy.OnlineTran.Common.Response
 
         /// <summary></summary>
         public string Remark { get; set; }
+
+        /// <summary></summary>
+        public int IsPrice { get; set; }
+
+        /// <summary></summary>
+        public string Ident { get; set; }
+
+        /// <summary></summary>
+        public string CardNo { get; set; }
+
+        /// <summary></summary>
+        public string BankName { get; set; }
+
+        /// <summary></summary>
+        public string Company { get; set; }
+
+        /// <summary></summary>
+        public string CompCity { get; set; }
+
+        /// <summary></summary>
+        public string Department { get; set; }
+
+        /// <summary></summary>
+        public string Position { get; set; }
     }
 }

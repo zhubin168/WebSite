@@ -220,6 +220,102 @@ namespace Dafy.OnlineTran.Entity.Models
             get { return _Remark; }
             set { if (OnPropertyChanging(__.Remark, value)) { _Remark = value; OnPropertyChanged(__.Remark); } }
         }
+
+        private Int32 _IsPrice;
+        /// <summary></summary>
+        [DisplayName("IsPrice")]
+        [Description("")]
+        [DataObjectField(false, false, true, 10)]
+        [BindColumn(18, "IsPrice", "", null, "int", 10, 0, false)]
+        public virtual Int32 IsPrice
+        {
+            get { return _IsPrice; }
+            set { if (OnPropertyChanging(__.IsPrice, value)) { _IsPrice = value; OnPropertyChanged(__.IsPrice); } }
+        }
+
+        private String _Ident;
+        /// <summary></summary>
+        [DisplayName("Ident")]
+        [Description("")]
+        [DataObjectField(false, false, true, 50)]
+        [BindColumn(19, "Ident", "", null, "nvarchar(50)", 0, 0, true)]
+        public virtual String Ident
+        {
+            get { return _Ident; }
+            set { if (OnPropertyChanging(__.Ident, value)) { _Ident = value; OnPropertyChanged(__.Ident); } }
+        }
+
+        private String _CardNo;
+        /// <summary></summary>
+        [DisplayName("CardNo")]
+        [Description("")]
+        [DataObjectField(false, false, true, 50)]
+        [BindColumn(20, "CardNo", "", null, "nvarchar(50)", 0, 0, true)]
+        public virtual String CardNo
+        {
+            get { return _CardNo; }
+            set { if (OnPropertyChanging(__.CardNo, value)) { _CardNo = value; OnPropertyChanged(__.CardNo); } }
+        }
+
+        private String _BankName;
+        /// <summary></summary>
+        [DisplayName("BankName")]
+        [Description("")]
+        [DataObjectField(false, false, true, 50)]
+        [BindColumn(21, "BankName", "", null, "nvarchar(50)", 0, 0, true)]
+        public virtual String BankName
+        {
+            get { return _BankName; }
+            set { if (OnPropertyChanging(__.BankName, value)) { _BankName = value; OnPropertyChanged(__.BankName); } }
+        }
+
+        private String _Company;
+        /// <summary></summary>
+        [DisplayName("Company")]
+        [Description("")]
+        [DataObjectField(false, false, true, 50)]
+        [BindColumn(22, "Company", "", null, "nvarchar(50)", 0, 0, true)]
+        public virtual String Company
+        {
+            get { return _Company; }
+            set { if (OnPropertyChanging(__.Company, value)) { _Company = value; OnPropertyChanged(__.Company); } }
+        }
+
+        private String _CompCity;
+        /// <summary></summary>
+        [DisplayName("CompCity")]
+        [Description("")]
+        [DataObjectField(false, false, true, 50)]
+        [BindColumn(23, "CompCity", "", null, "nvarchar(50)", 0, 0, true)]
+        public virtual String CompCity
+        {
+            get { return _CompCity; }
+            set { if (OnPropertyChanging(__.CompCity, value)) { _CompCity = value; OnPropertyChanged(__.CompCity); } }
+        }
+
+        private String _Department;
+        /// <summary></summary>
+        [DisplayName("Department")]
+        [Description("")]
+        [DataObjectField(false, false, true, 50)]
+        [BindColumn(24, "Department", "", null, "nvarchar(50)", 0, 0, true)]
+        public virtual String Department
+        {
+            get { return _Department; }
+            set { if (OnPropertyChanging(__.Department, value)) { _Department = value; OnPropertyChanged(__.Department); } }
+        }
+
+        private String _Position;
+        /// <summary></summary>
+        [DisplayName("Position")]
+        [Description("")]
+        [DataObjectField(false, false, true, 50)]
+        [BindColumn(25, "Position", "", null, "nvarchar(50)", 0, 0, true)]
+        public virtual String Position
+        {
+            get { return _Position; }
+            set { if (OnPropertyChanging(__.Position, value)) { _Position = value; OnPropertyChanged(__.Position); } }
+        }
         #endregion
 
         #region 获取/设置 字段值
@@ -253,6 +349,14 @@ namespace Dafy.OnlineTran.Entity.Models
                     case __.RoleId : return _RoleId;
                     case __.TelePhone : return _TelePhone;
                     case __.Remark : return _Remark;
+                    case __.IsPrice : return _IsPrice;
+                    case __.Ident : return _Ident;
+                    case __.CardNo : return _CardNo;
+                    case __.BankName : return _BankName;
+                    case __.Company : return _Company;
+                    case __.CompCity : return _CompCity;
+                    case __.Department : return _Department;
+                    case __.Position : return _Position;
                     default: return base[name];
                 }
             }
@@ -277,6 +381,14 @@ namespace Dafy.OnlineTran.Entity.Models
                     case __.RoleId : _RoleId = Convert.ToInt32(value); break;
                     case __.TelePhone : _TelePhone = Convert.ToString(value); break;
                     case __.Remark : _Remark = Convert.ToString(value); break;
+                    case __.IsPrice : _IsPrice = Convert.ToInt32(value); break;
+                    case __.Ident : _Ident = Convert.ToString(value); break;
+                    case __.CardNo : _CardNo = Convert.ToString(value); break;
+                    case __.BankName : _BankName = Convert.ToString(value); break;
+                    case __.Company : _Company = Convert.ToString(value); break;
+                    case __.CompCity : _CompCity = Convert.ToString(value); break;
+                    case __.Department : _Department = Convert.ToString(value); break;
+                    case __.Position : _Position = Convert.ToString(value); break;
                     default: base[name] = value; break;
                 }
             }
@@ -338,6 +450,30 @@ namespace Dafy.OnlineTran.Entity.Models
             ///<summary></summary>
             public static readonly Field Remark = FindByName(__.Remark);
 
+            ///<summary></summary>
+            public static readonly Field IsPrice = FindByName(__.IsPrice);
+
+            ///<summary></summary>
+            public static readonly Field Ident = FindByName(__.Ident);
+
+            ///<summary></summary>
+            public static readonly Field CardNo = FindByName(__.CardNo);
+
+            ///<summary></summary>
+            public static readonly Field BankName = FindByName(__.BankName);
+
+            ///<summary></summary>
+            public static readonly Field Company = FindByName(__.Company);
+
+            ///<summary></summary>
+            public static readonly Field CompCity = FindByName(__.CompCity);
+
+            ///<summary></summary>
+            public static readonly Field Department = FindByName(__.Department);
+
+            ///<summary></summary>
+            public static readonly Field Position = FindByName(__.Position);
+
             static Field FindByName(String name) { return Meta.Table.FindByName(name); }
         }
 
@@ -394,6 +530,30 @@ namespace Dafy.OnlineTran.Entity.Models
 
             ///<summary></summary>
             public const String Remark = "Remark";
+
+            ///<summary></summary>
+            public const String IsPrice = "IsPrice";
+
+            ///<summary></summary>
+            public const String Ident = "Ident";
+
+            ///<summary></summary>
+            public const String CardNo = "CardNo";
+
+            ///<summary></summary>
+            public const String BankName = "BankName";
+
+            ///<summary></summary>
+            public const String Company = "Company";
+
+            ///<summary></summary>
+            public const String CompCity = "CompCity";
+
+            ///<summary></summary>
+            public const String Department = "Department";
+
+            ///<summary></summary>
+            public const String Position = "Position";
 
         }
         #endregion
@@ -453,6 +613,30 @@ namespace Dafy.OnlineTran.Entity.Models
 
         /// <summary></summary>
         String Remark { get; set; }
+
+        /// <summary></summary>
+        Int32 IsPrice { get; set; }
+
+        /// <summary></summary>
+        String Ident { get; set; }
+
+        /// <summary></summary>
+        String CardNo { get; set; }
+
+        /// <summary></summary>
+        String BankName { get; set; }
+
+        /// <summary></summary>
+        String Company { get; set; }
+
+        /// <summary></summary>
+        String CompCity { get; set; }
+
+        /// <summary></summary>
+        String Department { get; set; }
+
+        /// <summary></summary>
+        String Position { get; set; }
         #endregion
 
         #region 获取/设置 字段值

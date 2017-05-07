@@ -54,6 +54,14 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
                                  a.TelePhone,
                                  a.Unionid,
                                  a.Username,
+                                 a.IsPrice,
+                                 a.Ident,
+                                 a.CardNo,
+                                 a.BankName,
+                                 a.Company,
+                                 a.CompCity,
+                                 a.Department,
+                                 a.Position
                              }); 
                 query = query.OrderByDescending(q => q.Id).ThenByDescending(q => q.LoginTime);
                 result.total = Wexin_User.FindAll(sql, null, null, 0, 0).Count; //query.Count();
@@ -77,7 +85,14 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
                     TelePhone = a.TelePhone,
                     //Unionid = a.Unionid,
                     Username = a.Username,
-
+                    IsPrice=a.IsPrice,
+                    Ident=a.Ident,
+                    CardNo=a.CardNo,
+                    BankName=a.BankName,
+                    Company=a.Company,
+                    CompCity=a.CompCity,
+                    Department=a.Department,
+                    Position=a.Position
                 }).ToList();
                 return result;
         }
@@ -125,6 +140,14 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
             user.TelePhone = rq.TelePhone;
             user.Remark = rq.Remark;
             user.RoleId=rq.RoleId;
+            user.IsPrice = rq.IsPrice;
+            user.Ident = rq.Ident;
+            user.CardNo = rq.CardNo;
+            user.BankName = rq.BankName;
+            user.Company = rq.Company;
+            user.CompCity = rq.CompCity;
+            user.Department = rq.Department;
+            user.Position = rq.Position;
             users.Add(user);
             int nCount = users.Save();
             return new ResultModel<string>

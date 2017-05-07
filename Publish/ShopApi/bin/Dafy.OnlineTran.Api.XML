@@ -1,0 +1,356 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dafy.OnlineTran.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Dafy.OnlineTran.Api.Startup">
+            <summary>
+            OWIN启动类
+            </summary>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Startup.ConfigureCors(Owin.IAppBuilder)">
+            <summary>
+            配置跨域中间件
+            </summary>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Startup.ConfigureSignalR(Owin.IAppBuilder)">
+            <summary>
+            配置SignalrR中间件
+            </summary>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Startup.ConfigureDependency">
+            <summary>
+            构建IoC容器
+            </summary>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Startup.ConfigureService">
+            <summary>
+            配置需要初始化的service
+            </summary>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Startup.Configuration(Owin.IAppBuilder)">
+            <summary>
+            配置中间件
+            </summary>
+        </member>
+        <member name="T:Dafy.OnlineTran.Api.Controllers.HomeController">
+            <summary>
+            用户认证中心
+            </summary>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Controllers.HomeController.#ctor(Dafy.OnlineTran.IService.Pc.IAccountService)">
+            <summary>
+            注入service
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Controllers.HomeController.Login(Dafy.OnlineTran.Common.Request.LoginRQ)">
+            <summary>
+            用户登录
+            </summary>
+            <param name="loginRQ"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Controllers.HomeController.Logout">
+            <summary>
+            用户注销
+            </summary>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Controllers.HomeController.GetAuthorityMeun">
+            <summary>
+            获取菜单接口权限
+            </summary>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Controllers.HomeController.FindPassword(Dafy.OnlineTran.Common.Request.FindPasswordRQ)">
+            <summary>
+            找回密码
+            </summary>
+        </member>
+        <member name="T:Dafy.OnlineTran.Api.Filters.ModelValidationFilterAttribute">
+            <summary>
+            全局的Model验证过滤器
+            </summary>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Filters.ModelValidationFilterAttribute.OnActionExecuting(System.Web.Http.Controllers.HttpActionContext)">
+            <summary>
+            Action执行之前判断Model验证是否通过
+            </summary>
+        </member>
+        <member name="T:Dafy.OnlineTran.Api.Filters.WebApiExceptionHandleFilter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Filters.WebApiExceptionHandleFilter.HandleException(System.Web.Http.Filters.HttpActionExecutedContext,System.String,System.String,System.String,System.String)">
+            <summary>
+            异常时报错处理
+            </summary>
+        </member>
+        <member name="T:Dafy.OnlineTran.Api.Owin.OwinLogFactory">
+            <summary>
+            OWIN中间件里面用到的日志工厂类
+            </summary>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Owin.OwinLogFactory.Create(System.String)">
+            <summary>
+            创建owin里面用到的日志对象
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Dafy.OnlineTran.Api.Owin.OwinLogger">
+            <summary>
+            给owin中间件写日志用的日志记录器
+            </summary>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Owin.OwinLogger.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="name"></param>
+        </member>
+        <member name="M:Dafy.OnlineTran.Api.Owin.OwinLogger.WriteCore(System.Diagnostics.TraceEventType,System.Int32,System.Object,System.Exception,System.Func{System.Object,System.Exception,System.String})">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:GiveU.CollectionVisit.Web.Controllers.ActiveController">
+            <summary>
+            活动管理
+            创建人：朱斌
+            创建时间：2017-05-01
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ActiveController.#ctor(Dafy.OnlineTran.IService.Pc.IActiveService)">
+            <summary>
+            注入service
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ActiveController.GetActives(Dafy.OnlineTran.Common.Request.ActiveListRQ)">
+            <summary>
+            活动管理列表
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ActiveController.DelActives(Dafy.OnlineTran.Common.Request.SaveActiveRQ)">
+            <summary>
+            删除活动信息
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ActiveController.SaveActives(Dafy.OnlineTran.Common.Request.SaveActiveRQ)">
+            <summary>
+            保存活动信息
+            </summary>
+        </member>
+        <member name="T:GiveU.CollectionVisit.Web.Controllers.ArticleController">
+            <summary>
+            资讯管理
+            创建人：朱斌
+            创建时间：2017-05-01
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ArticleController.#ctor(Dafy.OnlineTran.IService.Pc.IArticleService)">
+            <summary>
+            注入service getArticles
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ArticleController.GetArticles(Dafy.OnlineTran.Common.Request.ArticleListRQ)">
+            <summary>
+            资讯管理列表
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ArticleController.DelArticles(Dafy.OnlineTran.Common.Request.SaveArticleRQ)">
+            <summary>
+            删除资讯信息
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ArticleController.SaveArticles(Dafy.OnlineTran.Common.Request.SaveArticleRQ)">
+            <summary>
+            保存资讯信息
+            </summary>
+        </member>
+        <member name="T:GiveU.CollectionVisit.Web.Controllers.CommonController">
+            <summary>
+            公共接口管理
+            创建人：朱斌
+            创建时间：2017-05-05
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.CommonController.UploadImg">
+            <summary>
+            上传图片
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.CommonController.UploadDoc">
+            <summary>
+            上传附件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.CommonController.CheckUploadFileType(System.String)">
+            <summary>
+            检验文件类型
+            </summary>
+            <param name="fileName">文件名</param>
+            <returns></returns>
+        </member>
+        <member name="T:GiveU.CollectionVisit.Web.Controllers.ConfigController">
+            <summary>
+            数据配置
+            创建人：朱斌
+            创建时间：2017-04-30
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ConfigController.#ctor(Dafy.OnlineTran.IService.Pc.IConfigService)">
+            <summary>
+            注入service
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ConfigController.GetConfigs(Dafy.OnlineTran.Common.Request.ParameterRQ)">
+            <summary>
+            参数字典列表
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ConfigController.SaveConfig(Dafy.OnlineTran.Common.Request.SaveParameterRQ)">
+            <summary>
+            保存字典信息
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ConfigController.DeleteConfig(Dafy.OnlineTran.Common.Request.DelParameterRQ)">
+            <summary>
+            删除字典信息
+            </summary>
+        </member>
+        <member name="T:GiveU.CollectionVisit.Web.Controllers.CourseController">
+            <summary>
+            课程管理
+            创建人：朱斌
+            创建时间：2017-04-30
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.CourseController.#ctor(Dafy.OnlineTran.IService.Pc.ICourseService)">
+            <summary>
+            注入service
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.CourseController.GetCourses(Dafy.OnlineTran.Common.Request.CourseListRQ)">
+            <summary>
+            课程管理列表
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.CourseController.DelCourses(Dafy.OnlineTran.Common.Request.SaveCourseRQ)">
+            <summary>
+            删除课程信息
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.CourseController.SaveCourses(Dafy.OnlineTran.Common.Request.SaveCourseRQ)">
+            <summary>
+            保存课程信息
+            </summary>
+        </member>
+        <member name="T:GiveU.CollectionVisit.Web.Controllers.FinancialController">
+            <summary>
+            理财师管理
+            创建人：朱斌
+            创建时间：2017-04-30
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.FinancialController.#ctor(Dafy.OnlineTran.IService.Pc.IUserService)">
+            <summary>
+            注入service
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.FinancialController.GetUsers(Dafy.OnlineTran.Common.Request.WeixinUserRQ)">
+            <summary>
+            理财师管理列表
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.FinancialController.DelUsers(Dafy.OnlineTran.Common.Request.UpdateWeixinUserRQ)">
+            <summary>
+            删除理财师信息
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.FinancialController.SaveUsers(Dafy.OnlineTran.Common.Request.UpdateWeixinUserRQ)">
+            <summary>
+            修改理财师信息
+            </summary>
+        </member>
+        <member name="T:GiveU.CollectionVisit.Web.Controllers.OrderController">
+            <summary>
+            理财师管理
+            创建人：朱斌
+            创建时间：2017-04-30
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.OrderController.#ctor(Dafy.OnlineTran.IService.Pc.IOrderService)">
+            <summary>
+            注入service
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.OrderController.GetOrders(Dafy.OnlineTran.Common.Request.OrderListRQ)">
+            <summary>
+            订单管理列表
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.OrderController.DelOrders(Dafy.OnlineTran.Common.Request.DelParameterRQ)">
+            <summary>
+            删除订单信息
+            </summary>
+        </member>
+        <member name="T:GiveU.CollectionVisit.Web.Controllers.ProductController">
+            <summary>
+            产品管理
+            创建人：朱斌
+            创建时间：2017-05-01
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ProductController.#ctor(Dafy.OnlineTran.IService.Pc.IProductService)">
+            <summary>
+            注入service
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ProductController.GetProducts(Dafy.OnlineTran.Common.Request.ProductListRQ)">
+            <summary>
+            产品管理列表
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ProductController.DelProducts(Dafy.OnlineTran.Common.Request.SaveProductRQ)">
+            <summary>
+            删除产品信息
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ProductController.SaveProducts(Dafy.OnlineTran.Common.Request.SaveProductRQ)">
+            <summary>
+            保存产品信息
+            </summary>
+        </member>
+        <member name="T:GiveU.CollectionVisit.Web.Controllers.ToolController">
+            <summary>
+            获客助手管理
+            创建人：朱斌
+            创建时间：2017-05-01
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ToolController.#ctor(Dafy.OnlineTran.IService.Pc.ICustomerToolService)">
+            <summary>
+            注入service
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ToolController.GetTools(Dafy.OnlineTran.Common.Request.CustomerToolsRQ)">
+            <summary>
+            获客助手管理列表
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ToolController.DelTools(Dafy.OnlineTran.Common.Request.SaveCustomerToolsRQ)">
+            <summary>
+            删除获客助手
+            </summary>
+        </member>
+        <member name="M:GiveU.CollectionVisit.Web.Controllers.ToolController.SaveTools(Dafy.OnlineTran.Common.Request.SaveCustomerToolsRQ)">
+            <summary>
+            保存获客助手
+            </summary>
+        </member>
+    </members>
+</doc>
