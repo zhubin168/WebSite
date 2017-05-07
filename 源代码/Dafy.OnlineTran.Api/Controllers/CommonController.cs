@@ -13,6 +13,11 @@ using Dafy.OnlineTran.IService.Pc;
 using Dafy.OnlineTran.Common.Request;
 using System.Collections.Generic;
 using System.Web;
+using System.Collections;
+using Swashbuckle.Swagger;
+using System.Text.RegularExpressions;
+using System.Configuration;
+using System.Globalization;
 
 namespace GiveU.CollectionVisit.Web.Controllers
 {
@@ -147,5 +152,241 @@ namespace GiveU.CollectionVisit.Web.Controllers
                 return false;
             }
         }
+
+        //#region "KE编辑器文件上传"
+
+        ///// <summary>
+        ///// 从配置文件中获取指定的数据
+        ///// </summary>
+        ///// <param Name="strKey"></param>
+        ///// <returns></returns>
+        //private static string GetConfigInfo(string strKey)
+        //{
+        //    var strValue = string.Empty;
+
+        //    if (null != ConfigurationManager.AppSettings[strKey])
+        //    {
+        //        strValue = ConfigurationManager.AppSettings[strKey];
+        //    }
+
+        //    return strValue;
+        //}
+
+        //public string GetKeFilePath(string t)
+        //{
+        //    return GetConfigInfo(t == "n" ? "NoticePath" : "NewsPath");
+        //}
+        //[AllowAnonymous]
+        //public string KeUpload(string t)
+        //{
+        //    //文件保存目录路径
+        //    var savePath = GetKeFilePath(t);
+
+        //    //文件保存目录URL
+        //    var saveUrl = savePath;
+
+        //    //定义允许上传的文件扩展名
+        //    var extTable = new Hashtable
+        //     {
+        //         {"image", "gif,jpg,jpeg,png,bmp"},
+        //         {"flash", "swf,flv"},
+        //         {"media", "swf,flv,mp3,wav,wma,wmv,mid,avi,mpg,asf,rm,rmvb"},
+        //         {"file", "doc,docx,xls,xlsx,ppt,htm,html,txt,zip,rar,gz,bz2"}
+        //     };
+
+        //    //最大文件大小
+        //    const int maxSize = 2 * 1024 * 1024;
+
+        //    var imgFile = Request.Files["imgFile"];
+        //    if (imgFile == null)
+        //    {
+        //        ShowError("请选择文件。");
+        //    }
+
+        //    var dirPath = Server.MapPath(savePath);
+        //    if (!Directory.Exists(dirPath))
+        //    {
+        //        ShowError("上传目录不存在。");
+        //    }
+
+        //    var dirName = HttpContext.Current.Request.QueryString["dir"];
+        //    if (string.IsNullOrEmpty(dirName))
+        //    {
+        //        dirName = "image";
+        //    }
+        //    if (!extTable.ContainsKey(dirName))
+        //    {
+        //        ShowError("目录名不正确。");
+        //    }
+
+        //    if (imgFile == null) return null;
+        //    var fileName = imgFile.FileName;
+        //    var extension = Path.GetExtension(fileName);
+        //    if (extension == null) return null;
+        //    var fileExt = extension.ToLower();
+
+        //    if (imgFile.InputStream == null || imgFile.InputStream.Length > maxSize)
+        //    {
+        //        ShowError("上传文件大小超过限制。");
+        //    }
+
+        //    if (string.IsNullOrEmpty(fileExt) || Array.IndexOf(((string)extTable[dirName]).Split(','), fileExt.Substring(1).ToLower()) == -1)
+        //    {
+        //        ShowError("上传文件扩展名是不允许的扩展名。\n只允许" + ((string)extTable[dirName]) + "格式。");
+        //    }
+
+        //    //创建文件夹
+        //    dirPath += dirName + "/";
+        //    saveUrl += dirName + "/";
+        //    if (!Directory.Exists(dirPath))
+        //    {
+        //        Directory.CreateDirectory(dirPath);
+        //    }
+        //    var ymd = DateTime.Now.ToString("yyyyMMdd", DateTimeFormatInfo.InvariantInfo);
+        //    dirPath += ymd + "/";
+        //    saveUrl += ymd + "/";
+        //    if (!Directory.Exists(dirPath))
+        //    {
+        //        Directory.CreateDirectory(dirPath);
+        //    }
+
+        //    var newFileName = DateTime.Now.ToString("yyyyMMddHHmmss_ffff", DateTimeFormatInfo.InvariantInfo) + fileExt;
+        //    var filePath = dirPath + newFileName;
+
+        //    imgFile.SaveAs(filePath);
+
+        //    var fileUrl = ConfigurationManager.AppSettings["KEFilesPreviewURL"] + saveUrl + newFileName;
+
+        //    var hash = new Hashtable();
+        //    hash["error"] = 0;
+        //    hash["url"] = fileUrl;
+
+        //    return hash.to;
+        //}
+
+        ////显示错误信息
+        //private JsonResult ShowError(string msg)
+        //{
+        //    return Json(new { error = 1, message = msg });
+        //}
+
+        ///// <summary>
+        ///// KE文件管理
+        ///// </summary>
+        ///// <returns></returns>
+        //[AllowAnonymous]
+        //public string FileManager(string t)
+        //{
+
+        //    //根目录路径，相对路径
+        //    var rootPath = GetKeFilePath(t);
+        //    //根目录URL，可以指定绝对路径
+        //    var rootUrl = rootPath;
+        //    //图片扩展名
+        //    var fileTypes = "gif,jpg,jpeg,png,bmp";
+
+        //    var currentPath = "";
+        //    var currentUrl = "";
+        //    var currentDirPath = "";
+        //    var moveupDirPath = "";
+
+        //    var dirPath = Server.MapPath(rootPath);
+        //    var dirName = HttpContext.Current.Request.QueryString["dir"];
+        //    if (!string.IsNullOrEmpty(dirName))
+        //    {
+        //        if (Array.IndexOf("image,flash,media,file".Split(','), dirName) == -1)
+        //        {
+        //            Response.Write("Invalid Directory Name.");
+        //            Response.End();
+        //        }
+        //        dirPath += dirName + "/";
+        //        rootUrl += dirName + "/";
+        //        if (!Directory.Exists(dirPath))
+        //        {
+        //            Directory.CreateDirectory(dirPath);
+        //        }
+        //    }
+
+        //    //根据path参数，设置各路径和URL
+        //    var path = HttpContext.Current.Request.QueryString["path"];
+        //    path = string.IsNullOrEmpty(path) ? "" : path;
+        //    if (path == "")
+        //    {
+        //        currentPath = dirPath;
+        //        currentUrl = rootUrl;
+        //        currentDirPath = "";
+        //        moveupDirPath = "";
+        //    }
+        //    else
+        //    {
+        //        currentPath = dirPath + path;
+        //        currentUrl = rootUrl + path;
+        //        currentDirPath = path;
+        //        moveupDirPath = Regex.Replace(currentDirPath, @"(.*?)[^\/]+\/$", "$1");
+        //    }
+
+        //    //排序形式，Name or size or Type
+        //    var order = HttpContext.Current.Request.QueryString["order"];
+        //    order = String.IsNullOrEmpty(order) ? "" : order.ToLower();
+
+        //    ////不允许使用..移动到上一级目录
+        //    //if (Regex.IsMatch(path, @"\.\."))
+        //    //{
+        //    //    Response.Write("Access is not allowed.");
+        //    //    Response.End();
+        //    //}
+        //    ////最后一个字符不是/
+        //    //if (path != "" && !path.EndsWith("/"))
+        //    //{
+        //    //    Response.Write("Parameter is not valid.");
+        //    //    Response.End();
+        //    //}
+        //    ////目录不存在或不是目录
+        //    //if (!Directory.Exists(currentPath))
+        //    //{
+        //    //    Response.Write("Directory does not exist.");
+        //    //    Response.End();
+        //    //}
+
+        //    //遍历目录取得文件信息
+        //    var dirList = Directory.GetDirectories(currentPath);
+        //    var fileList = Directory.GetFiles(currentPath);
+
+        //    var result = new Hashtable();
+        //    result["moveup_dir_path"] = moveupDirPath;
+        //    result["current_dir_path"] = currentDirPath;
+        //    result["current_url"] = ConfigurationManager.AppSettings["KEFilesPreviewURL"] + currentUrl;
+        //    result["total_count"] = dirList.Length + fileList.Length;
+        //    List<Hashtable> dirFileList = new List<Hashtable>();
+        //    result["file_list"] = dirFileList;
+        //    foreach (var t1 in dirList)
+        //    {
+        //        DirectoryInfo dir = new DirectoryInfo(t1);
+        //        Hashtable hash = new Hashtable();
+        //        hash["is_dir"] = true;
+        //        hash["has_file"] = (dir.GetFileSystemInfos().Length > 0);
+        //        hash["filesize"] = 0;
+        //        hash["is_photo"] = false;
+        //        hash["filetype"] = "";
+        //        hash["filename"] = dir.Name;
+        //        hash["datetime"] = dir.LastWriteTime.ToString("yyyy-MM-dd HH:mm:ss");
+        //        dirFileList.Add(hash);
+        //    }
+        //    foreach (var t1 in fileList)
+        //    {
+        //        FileInfo file = new FileInfo(t1);
+        //        Hashtable hash = new Hashtable();
+        //        hash["is_dir"] = false;
+        //        hash["has_file"] = false;
+        //        hash["filesize"] = file.Length;
+        //        hash["is_photo"] = (Array.IndexOf(fileTypes.Split(','), file.Extension.Substring(1).ToLower()) >= 0);
+        //        hash["filetype"] = file.Extension.Substring(1);
+        //        hash["filename"] = file.Name;
+        //        hash["datetime"] = file.LastWriteTime.ToString("yyyy-MM-dd HH:mm:ss");
+        //        dirFileList.Add(hash);
+        //    }
+        //    return JsonMapper.ToJson(result);
+        //}
+        //#endregion
     }
 }

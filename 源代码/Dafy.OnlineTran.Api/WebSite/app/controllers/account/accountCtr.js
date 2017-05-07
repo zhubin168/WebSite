@@ -26,7 +26,7 @@ define(['app'], function(app) {
 	                    	localStorage.setItem('onLineauthorization', JSON.stringify(data.data));
 	                        $rootScope.token = data.data.token;
 	                        $rootScope.userId=user.userId;	                        
-	                        $state.go('home');
+	                        $state.go('home.getOrders');
 	                    } else {
 	                    	toastr.warning('用户名或密码不对!');
 	                    	localStorage.removeItem('onLineauthorization');
