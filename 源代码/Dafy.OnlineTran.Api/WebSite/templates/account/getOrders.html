@@ -13,6 +13,9 @@
 					<button class="btn btn-primary" ng-click="getOrders()"> 
 			          <span class="glyphicon glyphicon-search"></span>搜索 
 			      </button>
+			       <button class="btn btn-success" ng-click="saveProducts(-1)">
+			          <span class="glyphicon glyphicon-plus"></span>导入业绩
+			        </button>
 				</div>
 			</div>
 		</div>
@@ -28,36 +31,27 @@
 			<thead>
 				<tr>
 					<th>序号</th>
-					<!--<th>invId</th>-->
-					<th>invName</th>
-					<th>invTelePhone</th>
-				<!--	<td>proId</th>-->
-					<th>proName</th>
-				    <td>orderPrice</th>
-					<th>status</th>
-				   <!-- <td>saleId</th>-->
-					<th>saleName</th>
-				    <!--<td>productId</th>-->
-					<th>productName</th>
-				    <th style="width: 150px;">操作</th>
+					<th>预约人姓名</th>
+					<th>预约人电话</th>
+					<th>预约的产品</th>
+				    <td>预约金额</th>
+					<th>预约状态</th>
+					<th>销售人员</th>
+					<th>购买人员</th>
+				    <th style="width: 80px;">操作</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat="item in getOrdersList">
 					<td>{{$index+1}}</td>
-					<!--<td>{{item.invId}}</td>-->
 					<td>{{item.invName}}</td>
 					<td>{{item.invTelePhone}}</td>
-				   <!-- <td>{{item.proId}}</td>-->
 				    <td>{{item.proName}}</td>
 				    <td>{{item.orderPrice}}</td>
 				    <td>{{item.status}}</td>
-					<!--<td>{{item.saleId}}</td>-->
 					 <td>{{item.saleName}}</td>
-				    <!--<td>{{item.productId}}</td>-->
-				    <td>{{item.productName}}</td>
+				    <td>{{item.clientName}}</td>
 					<td>
-						<button class="btn btn-primary btn-sm" ng-click="editConfigs($index)">设置 <span class="glyphicon glyphicon-pencil"></span> </button>
 					    <button mwl-confirm class="btn btn-danger btn-sm" ng-click="delOrders(item.id)">删除 <span class="glyphicon glyphicon-remove"></span> </button>
 					</td>
 				</tr>

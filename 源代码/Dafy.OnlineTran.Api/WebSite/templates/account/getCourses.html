@@ -13,7 +13,7 @@
 					<button class="btn btn-primary" ng-click="getCourses()"> 
 			          <span class="glyphicon glyphicon-search"></span>搜索 
 			       </button>
-			        <button class="btn btn-success" ng-click="editConfigs(-1)">
+			        <button class="btn btn-success" ng-click="saveCourses(-1)">
 			          <span class="glyphicon glyphicon-plus"></span>新增
 			        </button>
 				</div>
@@ -48,7 +48,7 @@
 					<td>{{item.isRecomand}}</td>
 				    <td>{{item.status}}</td>
 					<td>
-						<button class="btn btn-primary btn-sm" ng-click="editConfigs($index)">设置 <span class="glyphicon glyphicon-pencil"></span> </button>
+						<button class="btn btn-primary btn-sm" ng-click="saveCourses($index)">设置 <span class="glyphicon glyphicon-pencil"></span> </button>
 					    <button mwl-confirm class="btn btn-danger btn-sm" ng-click="delCourses(item.id)">删除 <span class="glyphicon glyphicon-remove"></span> </button>
 					</td>
 				</tr>
@@ -60,3 +60,55 @@
 		</div>
 	</div>
 </div>
+
+<!--
+	描述：新增课程
+-->
+	<script type="text/ng-template" id="saveCourses.html">
+			<div class="modal-body">
+				<form class="form-horizontal" role="form" name="myForm"  ng-submit="ok()" novalidate>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">课程标题</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入课程标题" ng-model="configItem.title" required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">课程名称</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入课程名称" ng-model="configItem.name"  required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">课程内容</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入课程内容" ng-model="configItem.conent"  required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">推荐位置</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入推荐位置" ng-model="configItem.isRecomand"  required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+				   <div class="form-group">
+						<label class="col-sm-2 control-label">课程图片</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入课程图片" ng-model="configItem.imageUrl"  required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary" ng-disabled="myForm.$invalid" ng-click="ok()">
+                      保存
+      </button>
+				<button class="btn btn-warning" ng-click="cancel()">取消</button>
+			</div>
+		</form>
+	</script>

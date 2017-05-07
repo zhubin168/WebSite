@@ -13,7 +13,7 @@
 					<button class="btn btn-primary" ng-click="getProducts()"> 
 			          <span class="glyphicon glyphicon-search"></span>搜索 
 			       </button>
-			        <button class="btn btn-success" ng-click="editConfigs(-1)">
+			        <button class="btn btn-success" ng-click="saveProducts(-1)">
 			          <span class="glyphicon glyphicon-plus"></span>新增
 			        </button>
 				</div>
@@ -50,7 +50,7 @@
 				    <td>{{item.proAge}}</td>
 				    <td>{{item.proUse}}</td>
 					<td>
-						<button class="btn btn-primary btn-sm" ng-click="editConfigs($index)">设置 <span class="glyphicon glyphicon-pencil"></span> </button>
+						<button class="btn btn-primary btn-sm" ng-click="saveProducts($index)">设置 <span class="glyphicon glyphicon-pencil"></span> </button>
 					    <button mwl-confirm class="btn btn-danger btn-sm" ng-click="delProducts(item.id)">删除 <span class="glyphicon glyphicon-remove"></span> </button>
 					</td>
 				</tr>
@@ -62,3 +62,97 @@
 		</div>
 	</div>
 </div>
+
+<!--
+	描述：新增产品
+-->
+	<script type="text/ng-template" id="saveProducts.html">
+			<div class="modal-body">
+				<form class="form-horizontal" role="form" name="myForm"  ng-submit="ok()" novalidate>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">产品名称</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入产品名称" ng-model="configItem.proName" required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">产品类型</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入产品类型" ng-model="configItem.proType"  required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">产品Banner</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入产品Banner" ng-model="configItem.banner"  required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+				   <div class="form-group">
+						<label class="col-sm-2 control-label">产品价格</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入产品价格" ng-model="configItem.price"  required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+					  <div class="form-group">
+						<label class="col-sm-2 control-label">保修年限</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入保修年限" ng-model="configItem.proAge"  required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">产品Log</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入产品Log" ng-model="configItem.logo"  required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">产品计划</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入产品计划" ng-model="configItem.proPlan"  required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">产品用途</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入产品用途" ng-model="configItem.proUse"  required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">产品文档</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入产品文档" ng-model="configItem.proDoc"  required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-2 control-label">产品案例</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入产品案例" ng-model="configItem.proCase"  required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+						<div class="form-group">
+						<label class="col-sm-2 control-label">我们的优势</label>
+						<div class="col-sm-8">
+							<input type="text" maxlength="50" class="form-control" placeholder="请输入我们的优势" ng-model="configItem.whyChoose"  required>
+						</div>
+						<label class="control-label" style="color: red;">*</label>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="submit" class="btn btn-primary" ng-disabled="myForm.$invalid" ng-click="ok()">
+                      保存
+      </button>
+				<button class="btn btn-warning" ng-click="cancel()">取消</button>
+			</div>
+		</form>
+	</script>

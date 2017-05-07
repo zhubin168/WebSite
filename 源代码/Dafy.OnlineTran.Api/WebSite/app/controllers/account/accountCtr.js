@@ -71,7 +71,45 @@ define(['app'], function(app) {
 					    })
 				   }
 			}
+			
+			//设置用户信息
+			$scope.saveUsers = function(index) { //打开模态 
+					var modalInstance = $uibModal.open({
+						templateUrl: 'saveUsers.html', //指向上面创建的视图
+						controller: 'saveUsersCtrl', // 初始化模态范围
+						size: 'lg', //大小配置
+						resolve: {
+							configItem: function() {
+							   return $scope.getUsersList[index];
+							}
+						}
+					})
+				}
 		}]);
+		
+	 //设置理财师信息
+	 app.controller('saveUsersCtrl',['$uibModalInstance','$scope','$state','$rootScope','$loading','UtilService','AccountService','configItem','Settings','toastr', function($uibModalInstance, $scope, $state, $rootScope,$loading ,UtilService,AccountService, configItem,Settings, toastr) {
+			
+			$scope.configItem = configItem;
+			$scope.ok = function() {
+				console.log(JSON.stringify($scope.configItem));
+				AccountService.saveUsers($scope.configItem, function(data) {
+					if(data != null && data.state == 1) {
+						 $rootScope.getUsers();
+						 toastr.success(data.message);
+					} else {
+						toastr.warning(data.message);
+						$rootScope.getUsers();
+					}
+				})
+				$uibModalInstance.close(); //关闭并返回当前选项
+			};
+			//取消
+			$scope.cancel = function() {
+					$uibModalInstance.dismiss('cancel'); // 退出
+					$rootScope.getUsers();
+			}
+	  }]);
 		
 		app.controller('articlesCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
             $scope.parm = {
@@ -108,8 +146,58 @@ define(['app'], function(app) {
 					    })
 				   }
 			}
+			
+			//保存资讯
+			$scope.saveArticles = function(index) { //打开模态 
+					var modalInstance = $uibModal.open({
+						templateUrl: 'saveArticles.html', //指向上面创建的视图
+						controller: 'saveArticlesCtrl', // 初始化模态范围
+						size: 'lg', //大小配置
+						resolve: {
+							configItem: function() {
+								if(index == -1) {
+									return {
+										  "id": '',
+										  "articleTitle": '',
+										  "articleType": '',
+										  "articleImg": '',
+										  "articleContent": '',
+										  "isRecommand": '',
+										  "isPublish": '',
+										  "status": '',
+									};
+								} else {
+									return $scope.getArticlesList[index];
+								}
+							}
+						}
+					})
+				}
 		}]);
 		
+	     //保存资讯
+		 app.controller('saveArticlesCtrl',['$uibModalInstance','$scope','$state','$rootScope','$loading','UtilService','AccountService','configItem','Settings','toastr', function($uibModalInstance, $scope, $state, $rootScope,$loading ,UtilService,AccountService, configItem,Settings, toastr) {
+				
+				$scope.configItem = configItem;
+				$scope.ok = function() {
+					console.log(JSON.stringify($scope.configItem));
+					AccountService.saveArticles($scope.configItem, function(data) {
+						if(data != null && data.state == 1) {
+							 $rootScope.getArticles();
+							 toastr.success(data.message);
+						} else {
+							toastr.warning(data.message);
+							$rootScope.getArticles();
+						}
+					})
+					$uibModalInstance.close(); //关闭并返回当前选项
+				};
+				//取消
+				$scope.cancel = function() {
+						$uibModalInstance.dismiss('cancel'); // 退出
+						$rootScope.getArticles();
+				}
+		  }]);
 		app.controller('ordersCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
             $scope.parm = {
 			"paraName":"",
@@ -182,7 +270,64 @@ define(['app'], function(app) {
 					    })
 				   }
 			}
+			
+			//保存产品
+			$scope.saveProducts = function(index) { //打开模态 
+					var modalInstance = $uibModal.open({
+						templateUrl: 'saveProducts.html', //指向上面创建的视图
+						controller: 'saveProductsCtrl', // 初始化模态范围
+						size: 'lg', //大小配置
+						resolve: {
+							configItem: function() {
+								if(index == -1) {
+									return {
+									  "id": '',
+									  "proName": '',
+									  "proType":'',
+									  "banner":'',
+									  "price":'',
+									  "proAge": '',
+									  "logo": '',
+									  "proPlan": '',
+									  "proUse": '',
+									  "proDoc": '',
+									  "proCase": '',
+									  "whyChoose":'',
+									  "isHot": '',
+									  "status":'',
+									};
+								} else {
+									return $scope.getProductsList[index];
+								}
+							}
+						}
+					})
+				}
 		}]);
+		
+		//保存产品
+		app.controller('saveProductsCtrl',['$uibModalInstance','$scope','$state','$rootScope','$loading','UtilService','AccountService','configItem','Settings','toastr', function($uibModalInstance, $scope, $state, $rootScope,$loading ,UtilService,AccountService, configItem,Settings, toastr) {
+				
+				$scope.configItem = configItem;
+				$scope.ok = function() {
+					console.log(JSON.stringify($scope.configItem));
+					AccountService.saveProducts($scope.configItem, function(data) {
+						if(data != null && data.state == 1) {
+							 $rootScope.getProducts();
+							 toastr.success(data.message);
+						} else {
+							toastr.warning(data.message);
+							$rootScope.getProducts();
+						}
+					})
+					$uibModalInstance.close(); //关闭并返回当前选项
+				};
+				//取消
+				$scope.cancel = function() {
+						$uibModalInstance.dismiss('cancel'); // 退出
+						$rootScope.getProducts();
+				}
+		  }]);
 		
 		app.controller('coursesCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
             $scope.parm = {
@@ -219,7 +364,57 @@ define(['app'], function(app) {
 					    })
 				   }
 			}
+			
+			//保存课程
+			$scope.saveCourses = function(index) { //打开模态 
+					var modalInstance = $uibModal.open({
+						templateUrl: 'saveCourses.html', //指向上面创建的视图
+						controller: 'saveCoursesCtrl', // 初始化模态范围
+						size: 'lg', //大小配置
+						resolve: {
+							configItem: function() {
+								if(index == -1) {
+									return {
+										"id": '',
+										"name": '',
+										"title": '',
+										"conent": '',
+										"isRecomand": '',
+										"imageUrl": '',
+										"status": ''
+									};
+								} else {
+									return $scope.getCoursesList[index];
+								}
+							}
+						}
+					})
+				}
 		}]);
+		
+	    //保存课程
+		app.controller('saveCoursesCtrl',['$uibModalInstance','$scope','$state','$rootScope','$loading','UtilService','AccountService','configItem','Settings','toastr', function($uibModalInstance, $scope, $state, $rootScope,$loading ,UtilService,AccountService, configItem,Settings, toastr) {
+				
+				$scope.configItem = configItem;
+				$scope.ok = function() {
+					console.log(JSON.stringify($scope.configItem));
+					AccountService.saveCourses($scope.configItem, function(data) {
+						if(data != null && data.state == 1) {
+							 $rootScope.getCourses();
+							 toastr.success(data.message);
+						} else {
+							toastr.warning(data.message);
+							$rootScope.getCourses();
+						}
+					})
+					$uibModalInstance.close(); //关闭并返回当前选项
+				};
+				//取消
+				$scope.cancel = function() {
+						$uibModalInstance.dismiss('cancel'); // 退出
+						$rootScope.getCourses();
+				}
+		  }]);
 		
 		app.controller('activesCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
             $scope.parm = {
@@ -255,8 +450,55 @@ define(['app'], function(app) {
 					    })
 				   }
 			}
+			
+			//保存活动
+			$scope.saveActives = function(index) { //打开模态 
+					var modalInstance = $uibModal.open({
+						templateUrl: 'saveActives.html', //指向上面创建的视图
+						controller: 'saveActivesCtrl', // 初始化模态范围
+						size: 'lg', //大小配置
+						resolve: {
+							configItem: function() {
+								if(index == -1) {
+									return {
+										"id": '',
+										"imageUrl": '',
+										"contentUrl": '',
+										"title": ''
+									};
+								} else {
+									return $scope.getActivesList[index];
+								}
+							}
+						}
+					})
+				}
 		}]);
 		
+		//保存活动
+		app.controller('saveActivesCtrl',['$uibModalInstance','$scope','$state','$rootScope','$loading','UtilService','AccountService','configItem','Settings','toastr', function($uibModalInstance, $scope, $state, $rootScope,$loading ,UtilService,AccountService, configItem,Settings, toastr) {
+				
+				$scope.configItem = configItem;
+				$scope.ok = function() {
+					console.log(JSON.stringify($scope.configItem));
+					AccountService.saveActives($scope.configItem, function(data) {
+						if(data != null && data.state == 1) {
+							 $rootScope.getActives();
+							 toastr.success(data.message);
+						} else {
+							toastr.warning(data.message);
+							$rootScope.getActives();
+						}
+					})
+					$uibModalInstance.close(); //关闭并返回当前选项
+				};
+				//取消
+				$scope.cancel = function() {
+						$uibModalInstance.dismiss('cancel'); // 退出
+						$rootScope.getActives();
+				}
+		  }]);
+			
 		app.controller('toolsCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
             $scope.parm = {
 			"paraName":"",
@@ -291,5 +533,53 @@ define(['app'], function(app) {
 					    })
 				   }
 			}
+			
+			//保存获客助手
+			$scope.saveTools = function(index) { //打开模态 
+					var modalInstance = $uibModal.open({
+						templateUrl: 'saveTools.html', //指向上面创建的视图
+						controller: 'saveToolsCtrl', // 初始化模态范围
+						size: 'lg', //大小配置
+						resolve: {
+							configItem: function() {
+								if(index == -1) {
+									return {
+										"id": '',
+										"title": '',
+										"imgType": '',
+										"orderNum": '',
+										"imageUrl": ''
+									};
+								} else {
+									return $scope.getToolsList[index];
+								}
+							}
+						}
+					})
+				}
 		}]);
+		
+		//保存助手
+		app.controller('saveToolsCtrl',['$uibModalInstance','$scope','$state','$rootScope','$loading','UtilService','AccountService','configItem','Settings','toastr', function($uibModalInstance, $scope, $state, $rootScope,$loading ,UtilService,AccountService, configItem,Settings, toastr) {
+				
+				$scope.configItem = configItem;
+				$scope.ok = function() {
+					console.log(JSON.stringify($scope.configItem));
+					AccountService.saveTools($scope.configItem, function(data) {
+						if(data != null && data.state == 1) {
+							 $rootScope.getTools();
+							 toastr.success(data.message);
+						} else {
+							toastr.warning(data.message);
+							$rootScope.getTools();
+						}
+					})
+					$uibModalInstance.close(); //关闭并返回当前选项
+				};
+				//取消
+				$scope.cancel = function() {
+						$uibModalInstance.dismiss('cancel'); // 退出
+						$rootScope.getTools();
+				}
+		  }]);
 });
