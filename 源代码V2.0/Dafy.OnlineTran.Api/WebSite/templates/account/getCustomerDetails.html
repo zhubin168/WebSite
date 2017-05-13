@@ -1,3 +1,4 @@
+<div><button type="button" class="btn btn-default" ng-click="goList();">返回</button></div>
 <div class="panel self-panel">
 	<div class="panel-heading">
 		查询条件
@@ -10,7 +11,7 @@
 					<input class="form-control" type="text" ng-model="parm.paraName" placeholder="输入客户的电话或姓名" />
 				</div>
 				<div class="col-md-3">
-					<button class="btn btn-primary" ng-click="getUsers()"> 
+					<button class="btn btn-primary" ng-click="detailCustomer()"> 
 			          <span class="glyphicon glyphicon-search"></span>搜索 
 			     </button>
 				</div>
@@ -21,10 +22,10 @@
 
 <div class="panel self-panel">
 	<div class="panel-heading">
-		理财师：江湖笑 15899998888 的团队
+		理财师：{{selectedItem.username}} {{selectedItem.telphone}} 的团队
 	</div>
 	<div class="panel-body scroll">
-		<table class="table table-striped table-bordered table-hover dataTable no-footer" dw-loading="getUsers" dw-loading-options="{active: true,text: '数据加载中，请稍后...',spinnerOptions: {color: '#00C4CA'}}">
+		<table class="table table-striped table-bordered table-hover dataTable no-footer">
 			<thead>
 				<tr>
 					<th>序号</th>
@@ -32,12 +33,12 @@
 					<th>电话</th>
 					<th>证件号</th>
 					<td>来源</th>
-						<th>绑定时间</th>
-						<th>总投资额（元）</th>
-						<th>投资笔数</th>
-						<th>在投总额（元）</th>
-						<th>在投笔数</th>
-						<th>贡献佣金</th>
+					<th>绑定时间</th>
+					<th>总投资额（元）</th>
+					<th>投资笔数</th>
+					<th>在投总额（元）</th>
+					<th>在投笔数</th>
+					<th>贡献佣金</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -45,14 +46,14 @@
 					<td>{{$index+1}}</td>
 					<td>{{item.username}}</td>
 					<td>{{item.telePhone}}</td>
-					<td>理财经理</td>
-					<td>{{item.username}}</td>
-					<td>{{item.telePhone}}</td>
-					<td>100</td>
-					<td>100</td>
-					<td>{{item.telePhone}}</td>
-					<td>100</td>
-					<td>100</td>
+					<td>{{item.ident}}</td>
+					<td>{{item.resource=='w'?'微信':'PC'}}</td>
+					<td>{{item.bindDate | date:'yyyy-MM-dd hh:mm:ss'}}</td>
+					<td>{{item.nums1}}</td>
+					<td>{{item.nums2}}</td>
+					<td>{{item.nums3}}</td>
+					<td>{{item.nums4}}</td>
+					<td>{{item.nums5}}</td>
 				</tr>
 			</tbody>
 		</table>

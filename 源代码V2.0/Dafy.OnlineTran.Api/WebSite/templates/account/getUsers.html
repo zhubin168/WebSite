@@ -61,8 +61,8 @@
 					<td>{{item.rank}}</td>
 					<td>{{item.pUsername}}</td>
 					<td>{{item.pTelePhone}}</td>
-					<td><a style="cursor: pointer;" ng-click="detailCustomer()">{{item.custormNums}}</a></td>
-					<td><a style="cursor: pointer;" ng-click="detailTeam()">{{item.memberNums}}</a></td>
+					<td><a style="cursor: pointer;" ng-click="getCustomerDetails(item.id,item.username,item.telePhone)">{{item.custormNums}}个</a></td>
+					<td><a style="cursor: pointer;" ng-click="detailTeam()">{{item.memberNums}}个</a></td>
 					<td>
 						<button class="btn btn-primary btn-sm" ng-click="detailManager(item.id)">详情 <span class="glyphicon glyphicon-pencil"></span> </button>
 					</td>

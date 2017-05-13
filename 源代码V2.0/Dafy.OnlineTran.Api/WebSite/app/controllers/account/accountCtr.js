@@ -179,7 +179,44 @@ define(['app'], function(app) {
 				$state.go('home.detailManager',{"selectedItem":JSON.stringify(selectedItem)});
 			}
 			
+			//点击客户详情
+			$scope.getCustomerDetails = function(id,username,telphone) {
+			    var selectedItem= {id:id,username:username,telphone:telphone};
+				$state.go('home.getCustomerDetails',{"selectedItem":JSON.stringify(selectedItem)});
+			}
+			
 		}]);
+		
+     //名下客户列表  
+	 app.controller('detailCustomerCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','$stateParams','AccountService','CommonService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,$stateParams,AccountService,CommonService,toastr){
+	       var selectedItem=JSON.parse($stateParams.selectedItem);
+	        $scope.selectedItem=selectedItem;
+	        //console.log(selectedItem);
+	        $scope.parm = {
+	       	"id":selectedItem.id,
+	       	"pageIndex":1,
+	       	"pageSize":10,
+	       	"paraName":""
+	        }
+	        //名下客户列表
+			$rootScope.detailCustomer=function(){
+				AccountService.detailCustomer($scope.parm,function(data){
+					    console.log(data);
+					    $scope.getUsersList = data.list;
+					    $scope.totalItems = data.total;				        
+			    });
+			 }
+			$rootScope.detailCustomer();	
+			//分页事件,获取当前的点击的页数
+			$scope.pageChanged = function() {
+				console.log($scope.parm.pageIndex);
+				$rootScope.detailCustomer();
+			};	
+		    //返回
+			$scope.goList = function() {
+				$state.go('home.getUsers');
+			}
+	}]);
 		
 	 //理财师详情  
 	 app.controller('detailManagerCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','$stateParams','AccountService','CommonService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,$stateParams,AccountService,CommonService,toastr){
@@ -187,13 +224,171 @@ define(['app'], function(app) {
 	        $scope.parm = {
 	       	"list":selectedItem
 	        }
-		    AccountService.detailManager({id: $scope.parm.list[0].id}, function(data) {
-    	       console.log(JSON.stringify(data));
-				$scope.configItem = data;
-			});
+	        $rootScope.detailManager=function(){	
+			    AccountService.detailManager({id: $scope.parm.list[0].id}, function(data) {
+	    	       console.log(JSON.stringify(data));
+					$scope.configItem = data;
+				});
+			}
+	        $scope.detailManager();
+		    //返回
+			$scope.goList = function() {
+				$state.go('home.getUsers');
+			}
+			//查看预约信息
+			$scope.searchMyOrder = function() {
+				 $state.go('home.getOrders');
+			}
+			
+			$scope.isHasAllowance = function(id,username,telePhone,isHasAllowance) { //是否有任务津贴
+				var modalInstance = $uibModal.open({
+					templateUrl: 'isHasAllowance.html', //指向上面创建的视图
+					controller: 'isHasAllowanceCtrl', // 初始化模态范围
+					size: 'default', //大小配置
+					resolve: {
+						configItem: function() {
+							   return {id:id,username:username,telePhone:telePhone,isHasAllowance:isHasAllowance};
+						}
+					}
+				})
+			}
+			
+			$scope.setBank = function(id,username,telePhone,ident,cardNo,bankName) { //编辑银行卡信息
+				var modalInstance = $uibModal.open({
+					templateUrl: 'setBank.html', //指向上面创建的视图
+					controller: 'setBankCtrl', // 初始化模态范围
+					size: 'default', //大小配置
+					resolve: {
+						configItem: function() {
+							   return {id:id,username:username,telePhone:telePhone,ident:ident,cardNo:cardNo,bankName:bankName};
+						}
+					}
+				})
+			}
+			
+		    $scope.setRelation = function(id,pUsername) { //编辑关系信息
+				var modalInstance = $uibModal.open({
+					templateUrl: 'setRelation.html', //指向上面创建的视图
+					controller: 'setRelationCtrl', // 初始化模态范围
+					size: 'default', //大小配置
+					resolve: {
+						configItem: function() {
+							   return {id:id,pUsername:pUsername};
+						}
+					}
+				})
+			}
+		    
+		    $scope.setCompany = function(id,username,telePhone,companyId) { //设置机构信息
+				var modalInstance = $uibModal.open({
+					templateUrl: 'setCompany.html', //指向上面创建的视图
+					controller: 'setCompanyCtrl', // 初始化模态范围
+					size: 'default', //大小配置
+					resolve: {
+						configItem: function() {
+							   return {id:id,username:username,telePhone:telePhone,companyId:companyId};
+						}
+					}
+				})
+			}
 	}]);
 
-
+    //是否有任务津贴
+	 app.controller('isHasAllowanceCtrl',['$uibModalInstance','$scope','$state','$rootScope','$loading','UtilService','AccountService','configItem','Settings','toastr', function($uibModalInstance, $scope, $state, $rootScope,$loading ,UtilService,AccountService, configItem,Settings, toastr) {
+			
+			$scope.configItem = configItem;
+			console.log($scope.configItem);
+			$scope.ok = function(isHasAllowance) {
+				console.log(JSON.stringify($scope.configItem));
+				AccountService.setAllowance({id:$scope.configItem.id,isHasAllowance:isHasAllowance}, function(data) {
+					if(data != null && data.state == 1) {
+						 $rootScope.detailManager();
+						 toastr.success(data.message);
+					} else {
+						toastr.warning(data.message);
+						//$rootScope.detailManager();
+					}
+				})
+				$uibModalInstance.close(); //关闭并返回当前选项
+			};
+			$scope.isHasAllowanceList=[{name:"是",value:"1"},{name:"否",value:"0"}];
+			//取消
+			$scope.cancel = function() {
+				$uibModalInstance.dismiss('cancel'); // 退出
+			}
+	  }]);
+	  
+	 //设置银行卡信息
+	 app.controller('setBankCtrl',['$uibModalInstance','$scope','$state','$rootScope','$loading','UtilService','AccountService','configItem','Settings','toastr', function($uibModalInstance, $scope, $state, $rootScope,$loading ,UtilService,AccountService, configItem,Settings, toastr) {
+			
+			$scope.configItem = configItem;
+			console.log($scope.configItem);
+			$scope.ok = function(ident,cardNo,bankName) {
+				console.log(JSON.stringify($scope.configItem));
+				AccountService.setBank({id:$scope.configItem.id,ident:ident,cardNo:cardNo,bankName:bankName}, function(data) {
+					if(data != null && data.state == 1) {
+						 $rootScope.detailManager();
+						 toastr.success(data.message);
+					} else {
+						toastr.warning(data.message);
+						//$rootScope.detailManager();
+					}
+				})
+				$uibModalInstance.close(); //关闭并返回当前选项
+			};
+			//取消
+			$scope.cancel = function() {
+				$uibModalInstance.dismiss('cancel'); // 退出
+			}
+	  }]);
+	  
+	 //设置上级信息
+	 app.controller('setRelationCtrl',['$uibModalInstance','$scope','$state','$rootScope','$loading','UtilService','AccountService','configItem','Settings','toastr', function($uibModalInstance, $scope, $state, $rootScope,$loading ,UtilService,AccountService, configItem,Settings, toastr) {
+			
+			$scope.configItem = configItem;
+			console.log($scope.configItem);
+			$scope.ok = function(pUsername) {
+				console.log(JSON.stringify($scope.configItem));
+				AccountService.setRelation({id:$scope.configItem.id,pUsername:pUsername}, function(data) {
+					if(data != null && data.state == 1) {
+						 $rootScope.detailManager();
+						 toastr.success(data.message);
+					} else {
+						toastr.warning(data.message);
+						//$rootScope.detailManager();
+					}
+				})
+				$uibModalInstance.close(); //关闭并返回当前选项
+			};
+			//取消
+			$scope.cancel = function() {
+				$uibModalInstance.dismiss('cancel'); // 退出
+			}
+	  }]);
+	  
+	 //设置机构信息
+	 app.controller('setCompanyCtrl',['$uibModalInstance','$scope','$state','$rootScope','$loading','UtilService','AccountService','configItem','Settings','toastr', function($uibModalInstance, $scope, $state, $rootScope,$loading ,UtilService,AccountService, configItem,Settings, toastr) {
+			
+			$scope.configItem = configItem;
+			console.log($scope.configItem);
+			$scope.ok = function(companyId) {
+				console.log(JSON.stringify($scope.configItem));
+				AccountService.setCompany({id:$scope.configItem.id,companyId:companyId}, function(data) {
+					if(data != null && data.state == 1) {
+						 $rootScope.detailManager();
+						 toastr.success(data.message);
+					} else {
+						toastr.warning(data.message);
+						//$rootScope.detailManager();
+					}
+				})
+				$uibModalInstance.close(); //关闭并返回当前选项
+			};
+			//取消
+			$scope.cancel = function() {
+				$uibModalInstance.dismiss('cancel'); // 退出
+			}
+	  }]);
 		
 	  app.controller('articlesCtrl', ['$rootScope','$state','$scope','$uibModal','$loading','AccountService','toastr', function($rootScope, $state,$scope,$uibModal,$loading,AccountService,toastr){
             $scope.parm = {

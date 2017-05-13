@@ -255,7 +255,7 @@ define([
            
             
                .state('home.getTeamDetails', angularAMD.route({ //团队详情
-		            url: '/getTeamDetails',
+		            url: '/getTeamDetails/:selectedItem',
 		            templateUrl: 'templates/account/getTeamDetails.html',
 		            resolve: {
 		                loadController: ['$q', '$stateParams',
@@ -276,8 +276,8 @@ define([
 		            }
 		    }))
                
-           .state('home.getCustomerDetails', angularAMD.route({ //客户详情
-		            url: '/getCustomerDetails',
+           .state('home.getCustomerDetails', angularAMD.route({ //名下客户列表
+		            url: '/getCustomerDetails/:selectedItem',
 		            templateUrl: 'templates/account/getCustomerDetails.html',
 		            resolve: {
 		                loadController: ['$q', '$stateParams',
@@ -294,7 +294,7 @@ define([
 		                ]
 		            },
 		            controllerProvider: function($stateParams) {
-		                return "weixinUserCtrl";
+		                return "detailCustomerCtrl";
 		            }
 		    }))
             

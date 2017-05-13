@@ -22,7 +22,10 @@ namespace Dafy.OnlineTran.Common.Request
     {
         public int pageIndex { get; set; }
         public int pageSize { get; set; }
-
+        /// <summary>
+        /// 搜索词：电话或者姓名
+        /// </summary>
+        public string paraName { get; set; }
         public int id { get; set; }
         public int roleId { get; set; }
         /// <summary>

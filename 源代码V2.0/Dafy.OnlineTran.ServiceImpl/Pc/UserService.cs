@@ -505,7 +505,11 @@ namespace Dafy.OnlineTran.ServiceImpl.Pc
             var result = new CustormerUserRS { total = 0, list = null };
             try
             {
-                var sql = " roleId= " + rq.roleId;
+                var sql = " roleId=0 and uid in(select uid from UserRelation where puid="+rq.id+")";
+                if (!string.IsNullOrWhiteSpace(rq.paraName))
+                {
+                    sql += string.Format(" and (uname like '%{0}%' or nickName like '%{0}%' or phone like '%{0}%') ", rq.paraName);
+                }
                 var user = Users.FindAll(sql, "uid desc", null, (rq.pageIndex - 1) * rq.pageSize, rq.pageSize);
                 var query = (from a in user.ToList()
                              select new

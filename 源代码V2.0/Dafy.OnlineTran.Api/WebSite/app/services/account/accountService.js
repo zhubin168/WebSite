@@ -48,6 +48,36 @@ define([
                     callback(data);
                 });
             },
+            setAllowance: function(par,callback) { //任务津贴设置
+                CommonService.getJsonData('api/Financial/SetAllowance', par).then(function(data) {
+                    callback(data);
+                });
+            },
+            setBank: function(par,callback) { //设置银行卡
+                CommonService.getJsonData('api/Financial/setBank', par).then(function(data) {
+                    callback(data);
+                });
+            },
+            setRelation: function(par,callback) { //设置上级信息
+                CommonService.getJsonData('api/Financial/SetRelation', par).then(function(data) {
+                    callback(data);
+                });
+            },
+            setCompany: function(par,callback) { //设置机构信息
+                CommonService.getJsonData('api/Financial/SetCompany', par).then(function(data) {
+                    callback(data);
+                });
+            },
+            detailCustomer: function(par,callback) { //名下客户列表
+                CommonService.getJsonData('api/Financial/DetailCustomer', par).then(function(data) {
+                    callback(data);
+                });
+            },
+            detailMember: function(par,callback) { //名下团队列表
+                CommonService.getJsonData('api/Financial/DetailMember', par).then(function(data) {
+                    callback(data);
+                });
+            },
             getArticles: function(par,callback) { //资讯管理列表
                 CommonService.getJsonData('api/Article/getArticles', par).then(function(data) {
                     callback(data);
