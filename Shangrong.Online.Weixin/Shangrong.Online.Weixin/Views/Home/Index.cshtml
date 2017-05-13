@@ -1,0 +1,259 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>爱旅-首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--标准mui.css-->
+    <link rel="stylesheet" href="../css/mui.min.css">
+    <link rel="stylesheet" href="../css/sprite.css">
+    <!--App自定义的css-->
+    <link rel="stylesheet" type="text/css" href="../css/app.css" />
+</head>
+<body>
+    <nav class="mui-bar mui-bar-tab">
+        <a class="mui-tab-item mui-active" href="#tabbar">
+            <span class="mui-icon icon-Home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item" href="#tabbar-with-self">
+            <span class="mui-icon icon-mine1"></span>
+            <span class="mui-tab-label">我的</span>
+        </a>
+    </nav>
+    <div class="mui-content">
+        <div id="tabbar" class="mui-control-content mui-active">
+            <!--search start-->
+            <div class="mui-indexed-list-search mui-input-row mui-search">
+                <input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="目的地／岛屿／酒店">
+            </div>
+            <!--search end-->
+            <!--slider start-->
+            <div id="slider" class="mui-slider">
+                <div class="mui-slider-group mui-slider-loop">
+                    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="#">
+                            <img src="../images/banner3.png">
+                        </a>
+                    </div>
+                    <!-- 第一张 -->
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="../images/banner1.png">
+                        </a>
+                    </div>
+                    <!-- 第二张 -->
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="../images/banner2.png">
+                        </a>
+                    </div>
+                    <!-- 第三张 -->
+                    <div class="mui-slider-item">
+                        <a href="#">
+                            <img src="../images/banner3.png">
+                        </a>
+                    </div>
+                    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+                    <div class="mui-slider-item mui-slider-item-duplicate">
+                        <a href="#">
+                            <img src="../images/banner1.png">
+                        </a>
+                    </div>
+                </div>
+                <div class="mui-slider-indicator">
+                    <div class="mui-indicator mui-active"></div>
+                    <div class="mui-indicator"></div>
+                    <div class="mui-indicator"></div>
+                </div>
+            </div>
+            <!--slider end-->
+            <!--icon start-->
+            <ul class="mui-table-view mui-grid-view mui-grid-9">
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a href="product_list.html">
+                        <span class="mui-icon mui-icon-sport self-sport1"></span>
+                        <div class="mui-media-body">马尔代夫</div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a href="#">
+                        <span class="mui-icon mui-icon-sport self-sport2"></span>
+                        <div class="mui-media-body">毛里求斯</div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a href="#">
+                        <span class="mui-icon mui-icon-sport self-sport3"></span>
+                        <div class="mui-media-body">大溪地</div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a href="#">
+                        <span class="mui-icon mui-icon-sport self-sport4"></span>
+                        <div class="mui-media-body">泰国</div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a href="#">
+                        <span class="mui-icon mui-icon-sport self-sport5"></span>
+                        <div class="mui-media-body">斯里兰卡</div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a href="#">
+                        <span class="mui-icon mui-icon-sport self-sport6"></span>
+                        <div class="mui-media-body">韩国</div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a href="#">
+                        <span class="mui-icon mui-icon-sport self-sport7"></span>
+                        <div class="mui-media-body">马达加斯加</div>
+                    </a>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                    <a href="#">
+                        <span class="mui-icon mui-icon-sport self-sport8"></span>
+                        <div class="mui-media-body">更多</div>
+                    </a>
+                </li>
+            </ul>
+            <!--icon end-->
+            <!--recommend start-->
+            <div class="recommend">
+                <div class="recommed-left">
+                    <ul class="mui-table-view mui-grid-view p-0 float-l">
+                        <li class="mui-table-view-cell mui-media p-0 m-0 float-l">
+                            <a href="product_list.html" class="m-0">
+                                <img src="../images/recommend.png" class="mui-media-img">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="recommend-right">
+                    <ul class="mui-table-view mui-grid-view p-0 float-l">
+                        <li class="mui-table-view-cell mui-media p-0 m-0 float-l">
+                            <a href="#" class="m-0">
+                                <img class="mui-media-img" src="../images/recommend1.png">
+                            </a>
+                        </li>
+                        <li class="mui-table-view-cell mui-media p-0 m-0 float-l">
+                            <a href="#" class="m-0">
+                                <img class="mui-media-img" src="../images/recommend2.png">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="mui-clearfix"></div>
+            </div>
+            <!--recommend end-->
+            <!--main start-->
+            <ul class="mui-table-view mui-grid-view p-0">
+                <li class="mui-table-view-cell mui-media-title">
+                    <div class="mui-table">
+                        <div class="mui-table-cell mui-col-xs-10">
+                            <span class="icon-fire"></span>
+                            <h4 class="mui-ellipsis-2">热门推荐</h4>
+                        </div>
+                        <a class="mui-navigate-right" href="www.baidu.com">
+                            <div class="mui-table-cell mui-col-xs-2 mui-text-right">
+                                <span class="mui-h5">更多</span>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+                <li class="mui-table-view-cell mui-media mui-col-xs-12 p-0 m-0">
+                    <a href="#" class="m-0">
+                        <img class="mui-media-img" src="../images/product.png">
+                        <div class="mui-media-text">
+                            【双国】新西兰 大溪地12天10晚寻梦之旅
+                            <p class="mui-ellipsis">走入《魔戒》《霍比特人》拍摄地，让您感受最真实震撼的自然奇观</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="mui-table-view mui-grid-view p-0">
+                <li class="mui-table-view-cell mui-media mui-col-xs-12 p-0 m-0">
+                    <a href="#" class="m-0">
+                        <img class="mui-media-img" src="../images/product.png">
+                        <div class="mui-media-text">
+                            【双国】新西兰 大溪地12天10晚寻梦之旅
+                            <p class="mui-ellipsis">走入《魔戒》《霍比特人》拍摄地，让您感受最真实震撼的自然奇观</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="mui-table-view mui-grid-view p-0">
+                <li class="mui-table-view-cell mui-media mui-col-xs-12 p-0 m-0">
+                    <a href="#" class="m-0">
+                        <img class="mui-media-img" src="../images/product.png">
+                        <div class="mui-media-text">
+                            【双国】新西兰 大溪地12天10晚寻梦之旅
+                            <p class="mui-ellipsis">走入《魔戒》《霍比特人》拍摄地，让您感受最真实震撼的自然奇观</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <ul class="mui-table-view mui-grid-view p-0">
+                <li class="mui-table-view-cell mui-media mui-col-xs-12 p-0 m-0">
+                    <a href="#" class="m-0">
+                        <img class="mui-media-img" src="../images/product.png">
+                        <div class="mui-media-text">
+                            【双国】新西兰 大溪地12天10晚寻梦之旅
+                            <p class="mui-ellipsis">走入《魔戒》《霍比特人》拍摄地，让您感受最真实震撼的自然奇观</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <!--main end-->
+        </div>
+        <div id="tabbar-with-self" class="mui-control-content">
+
+        </div>
+    </div>
+    <script src="../lib/mui.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        var slider = mui("#slider");
+        slider.slider({ interval: 3000 }); //window.localStorage.setItem("WechatToken", "db");
+        //mui.ajax('/api/demo/getTest', {
+        //    dataType: 'json',//服务器返回json格式数据
+        //    type: 'get',//HTTP请求类型
+        //    timeout: 10000,//超时时间设置为10秒；
+        //    headers: { 'Content-Type': 'application/json' },
+        //    success: function (data) {
+        //        //服务器返回响应，根据响应结果，分析是否登录成功；
+        //        alert("xxxx");
+        //    },
+        //    error: function (xhr, type, errorThrown) {
+        //        //异常处理；
+        //        console.log(type);
+        //    }
+        //});
+        //mui.toast('欢迎体验Hello MUI');
+        //mui.ajax('/api/demo/PostJosn', {
+        //    dataType: 'json',//服务器返回json格式数据
+        //    type: 'post',//HTTP请求类型
+        //    timeout: 10000,//超时时间设置为10秒；
+        //    headers: { 'Content-Type': 'application/json' },
+        //    success: function (data) {
+        //        //服务器返回响应，根据响应结果，分析是否登录成功；
+        //        alert("xxxx");
+        //    },
+        //    error: function (xhr, type, errorThrown) {
+        //        //异常处理；
+        //        console.log(type);
+        //    }
+        //});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Debug</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>05/12/2017 14:57:12</publishTime>
+    </File>
+    <File Include="bin/NewLife.Core.dll">
+      <publishTime>04/15/2015 20:40:44</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>05/12/2017 14:57:10</publishTime>
+    </File>
+    <File Include="bin/Senparc.Weixin.dll">
+      <publishTime>06/06/2016 10:34:27</publishTime>
+    </File>
+    <File Include="bin/Senparc.Weixin.MP.dll">
+      <publishTime>06/06/2016 10:34:27</publishTime>
+    </File>
+    <File Include="bin/Senparc.Weixin.MP.MvcExtension.dll">
+      <publishTime>06/06/2016 10:34:27</publishTime>
+    </File>
+    <File Include="bin/Senparc.Weixin.QY.dll">
+      <publishTime>06/06/2016 10:34:27</publishTime>
+    </File>
+    <File Include="bin/Shangrong.Online.Weixin.dll">
+      <publishTime>05/12/2017 15:48:12</publishTime>
+    </File>
+    <File Include="bin/Shangrong.Online.Weixin.pdb">
+      <publishTime>05/12/2017 15:48:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>05/12/2017 14:57:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>05/12/2017 14:57:14</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>05/12/2017 14:57:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>05/12/2017 14:57:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>05/12/2017 14:57:13</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>05/12/2017 14:57:13</publishTime>
+    </File>
+    <File Include="bin/XCode.dll">
+      <publishTime>04/15/2015 20:40:44</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>05/12/2017 14:57:18</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>05/12/2017 14:57:19</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>05/12/2017 14:57:17</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Deployment.resources.dll">
+      <publishTime>05/12/2017 14:57:18</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.Razor.resources.dll">
+      <publishTime>05/12/2017 14:57:18</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
+      <publishTime>05/12/2017 14:57:18</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>05/12/2017 14:57:01</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>05/12/2017 14:57:21</publishTime>
+    </File>
+    <File Include="Views/css/app.css">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/css/mui.min.css">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/css/sprite.css">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/fonts/icomoon.eot">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/fonts/icomoon.svg">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/fonts/icomoon.ttf">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/fonts/icomoon.woff">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/fonts/mui.ttf">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>05/12/2017 15:08:33</publishTime>
+    </File>
+    <File Include="Views/images/banner1.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/banner2.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/banner3.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/cbd.jpg">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/product.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/product_item1.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/product_item2.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/product_list.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/recommend.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/recommend1.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/recommend2.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/sport1.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/sport2.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/sport3.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/sport4.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/sport5.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/sport6.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/sport7.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/sport8.png">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/个人中心.svg">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/个人中心1.svg">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/火.svg">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/首页.svg">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/images/首页1.svg">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/http.js">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/http2.js">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/jquery/jquery-1.10.2.js">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/jquery/jquery-1.10.2.min.js">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/knockout/bindings/autocomplete-select.js">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/knockout/bindings/city-selector.js">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/knockout/bindings/datetime-picker.js">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/knockout/knockout.debug.js">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/knockout/knockout.init.js">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/knockout/knockout.js">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/knockout/knockout.pager.js">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/knockout/knockout.validation.min.js">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/knockout/knockout.validation.min.js.map">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/knockout/zh-CN.js">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/lib/mui.min.js">
+      <publishTime>05/12/2017 15:07:55</publishTime>
+    </File>
+    <File Include="Views/Test/Index.cshtml">
+      <publishTime>05/12/2017 15:36:37</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>05/12/2017 14:57:01</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/12/2017 15:48:14</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
