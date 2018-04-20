@@ -1,0 +1,203 @@
+<style>
+	.divMain {
+		border-top: 2px solid #186D6B;
+		position: relative;
+		background-color: #fff;
+		padding-bottom: 10px;
+	}
+	
+	.spanTitle {
+		background-color: #186D6B;
+		color: #fff;
+		padding: 2px 10px;
+		display: block;
+		width: 100px;
+		font-size: 18px;
+		text-align: center;
+	}
+	
+	.linkTitle {
+		position: absolute;
+		right: 10px;
+		top: 0;
+		height: 33px;
+		line-height: 33px;
+		font-size: 15px;
+		color: #186D6B;
+	}
+	
+	.h3Main {
+		font-size: 14px;
+		color: #333;
+		line-height: 12px;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		padding: 5px 10px;
+		font-weight: bold;
+	}
+	
+	.pMain {
+		color: #333;
+		font-size: 12px;
+		line-height: 10px;
+		padding: 0px 10px;
+	}
+	
+	ul,
+	li {
+		list-style: none;
+	}
+	
+	.floatbox {
+		height: 50px;
+		min-width: 320px;
+		width: 100%;
+		background: #ECECEC;
+		position: fixed;
+		bottom: -1px;
+		z-index: 999;
+		opacity: 1;
+		box-shadow: 0px 0px 10px #828282;
+		-moz-box-shadow: 0px 0px 10px #828282;
+		-webkit-box-shadow: 0px 0px 10px #828282;
+		-o-box-shadow: 0px 0px 10px #828282;
+	}
+	
+	.floatbox ul li {
+		height: 50px;
+		float: left;
+		position: relative;
+	}
+	
+	.li_one {
+		width: 33.33%;
+	}
+	
+	.li_two {
+		width: 33.33%;
+	}
+	
+	.li_three {
+		width: 33.33%;
+		/*background:#186D6B;*/
+	}
+	
+	.floatbox ul li em {
+		display: inline-block;
+		width: 40px;
+		height: 50px;
+		background-size: 110px;
+		vertical-align: middle;
+	}
+	.home_menu{
+	background-color:#fff;
+	padding:20px 0;
+	margin-bottom:5px;
+	}
+	
+.home_menu p{
+	display:-webkit-box;
+	display:-moz-box;
+	display:box;
+	/*width:320px*/
+	}
+	.home_menu a{
+	display:block;
+	-webkit-box-flex:1;
+	-moz-box-flex:1;
+	box-flex:1;
+	text-align:center;
+	width:25%;
+	padding:8px 0;
+	color:#333;
+	font-size:14px;
+	margin:-1px 0 0 -1px;
+	line-height:32px;
+	line-height:32px;
+	}
+
+.home_menu a em{
+	display:block;
+	width:66px;
+	height:66px;
+	margin:auto;
+	background-size: 355px;
+	}	
+	
+	
+.home_menu a.mdd_ico em{
+	
+	 }
+</style>
+<ion-view view-title="微信商城主页" hide-back-button="true">
+	<ion-content  scroll="true" lazy-scroll>
+		<ion-refresher on-refresh="doRefresh()" pulling-text="下拉刷新" refreshing-text="加载中..." spinner="dots"></ion-refresher>
+		<div class="home_menu">
+			<p>
+				<a class="tu_mada" href="index_app.html#/order"><em><img width="55" height="55" src="img/sport1.png"></em>类型1</a>
+				<a class="tu_daxidi" href="index_app.html#/order"><em><img width="55" height="55" src="img/sport2.png"></em>类型2</a>
+				<a class="tu_saisheer" href="index_app.html#/order"><em><img width="55" height="55" src="img/sport3.png"></em>类型3</a>
+				<a class="tu_madai" href="index_app.html#/order"><em><img width="55" height="55" src="img/sport4.png"></em>类型4</a>
+
+			</p>
+			<p>
+				<a class="tu_maoqiu" href="index_app.html#/order"><em><img width="55" height="55" src="img/sport5.png"></em>类型5</a>
+				<a class="tu_feiji" href="index_app.html#/order"><em><img width="55" height="55" src="img/sport6.png"></em>类型6</a>
+				<a class="tu_lanka" href="index_app.html#/order"><em><img width="55" height="55" src="img/sport7.png"></em>类型7</a>
+				<a class="tu_more" href="index_app.html#/order"><em><img width="55" height="55" src="img/sport8.png"></em>类型8</a>
+			</p>
+
+		</div>
+		<!--本季热推-->
+		<div class="pdt_con">
+			<div class="divMain">
+				<span class="spanTitle">本期推荐</span>
+				<a href="index_app.html#/myorder" class="linkTitle" style="color: #ff6a22;">我的订单>></a>
+			</div>
+			<section class="section product_section" id="dangj">
+				<div class="product">
+					<ul>
+						<a href="index_app.html#/order" class="single">
+							<div class="img">
+								<div class="tag"></div>
+								<img height="110" class="lazy" src="http://img.iitour.com/uploads/main/allimg/20160615/20160615100655.jpg" width="100%" border="0" height="232">
+							</div>
+							<div class="wrap_info">
+								<div class="info">
+									<div>
+										<h3 class="h3Main">海岛特卖 潜水圣地美娜多广州直飞5-6天自由行</h3>
+									</div>
+									<p class="pMain">世界五大潜水组织评定为世界潜水目的地之首</p>
+									<p class="IT_priceshow">
+										<span style="font-size: 18px;color: #f08300;padding-left: 10px;">原价：<span>￥300人</span>/起</span>
+										<span style="float:right;margin-right:10px;">优惠价：<font style="font-size: 20px;color: #f08300;">￥200</font>/人</span>
+									</p>
+								</div>
+							</div>
+						</a>
+						<a href="index_app.html#/order" class="single">
+							<div class="img">
+								<div class="tag"></div>
+								<img height="110" class="lazy" src="http://img.iitour.com/uploads/main/allimg/20170208/20170208162108.jpg" width="100%" border="0" height="232">
+							</div>
+							<div class="wrap_info">
+								<div class="info">
+									<div>
+										<h3 class="h3Main">巴厘岛水印酒店5天4晚单酒店/自由行</h3>
+									</div>
+									<p class="pMain">5分钟走路到海滩，全新酒店设施齐全 ，免费到库塔的班车</p>
+									<p class="IT_priceshow">
+										<span style="font-size: 18px;color: #f08300;padding-left: 10px;">原价：<span>￥100人</span>/起</span>
+										<span style="float:right;margin-right:10px;">优惠价：<font style="font-size: 20px;color: #f08300;">￥83</font>/人</span>
+									</p>
+								</div>
+							</div>
+						</a>
+					</ul>
+				</div>
+
+				<div style="height: 55px;"></div>
+				  <ion-infinite-scroll ng-if="more" on-infinite="loadMore()" distance="5%" icon="ion-load-a" immediate-check="false"></ion-infinite-scroll>  
+	</ion-content>
+</ion-view>

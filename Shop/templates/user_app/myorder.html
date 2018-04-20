@@ -1,0 +1,48 @@
+<ion-view view-title="我的订单" hide-back-button="true">
+	<ion-content scroll="true" lazy-scroll>
+		<ion-refresher on-refresh="doRefresh()" pulling-text="下拉刷新" refreshing-text="加载中..." spinner="dots"></ion-refresher>
+		<div class="mui-content">
+			<div class="item">
+				<div class="ub padding5-vertical">
+					<h5 class="col">商品名称：大型灯具999</h5>
+					<h5 class="col mui-text-right">商品价格：￥9999</h5>
+				</div>
+				<div class="ub padding5-vertical">
+					<h5 class="col">订单日期：2018-04-16</h5>
+					<div class="col mui-text-right"><a type="button" class="mui-btn mui-btn-warning fs14" data-bind="attr:{href:'/app/orderDetail.html?id='+id}">再次购买</a></div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="ub padding5-vertical">
+					<h5 class="col">商品名称：大型灯具999</h5>
+					<h5 class="col mui-text-right">商品价格：￥9999</h5>
+				</div>
+				<div class="ub padding5-vertical">
+					<h5 class="col">订单日期：2018-04-16</h5>
+					<div class="col mui-text-right"><a type="button" class="mui-btn mui-btn-warning fs14" data-bind="attr:{href:'/app/orderDetail.html?id='+id}">再次购买</a></div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="ub padding5-vertical">
+					<h5 class="col">商品名称：大型灯具999</h5>
+					<h5 class="col mui-text-right">商品价格：￥9999</h5>
+				</div>
+				<div class="ub padding5-vertical">
+					<h5 class="col">订单日期：2018-04-16</h5>
+					<div class="col mui-text-right"><a type="button" class="mui-btn mui-btn-warning fs14" data-bind="attr:{href:'/app/orderDetail.html?id='+id}">再次购买</a></div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="ub padding5-vertical">
+					<h5 class="col">商品名称：大型灯具999</h5>
+					<h5 class="col mui-text-right">商品价格：￥9999</h5>
+				</div>
+				<div class="ub padding5-vertical">
+					<h5 class="col">订单日期：2018-04-16</h5>
+					<div class="col mui-text-right"><a type="button" class="mui-btn mui-btn-warning fs14" data-bind="attr:{href:'/app/orderDetail.html?id='+id}">再次购买</a></div>
+				</div>
+			</div>
+		</div>
+		<ion-infinite-scroll ng-if="more" on-infinite="loadMore()" distance="5%" icon="ion-load-a" immediate-check="false"></ion-infinite-scroll>
+	</ion-content>
+</ion-view>

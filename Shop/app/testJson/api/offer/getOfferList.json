@@ -1,0 +1,40 @@
+{
+    "code": "测试内容5i1n",
+    "data": {
+        "list": [
+            {
+                "createTime": "测试内容70l5",
+                "createUser": "测试内容7k4o",
+                "email": "测试内容s94z",
+                "name": "测试内容c948",
+                "phone": "测试内容118x",
+                "sendStatus":0,
+                "sendTime": "测试内容uhv6",
+                "userId": 47715
+            },
+            {
+                "createTime": "测试内容70l5",
+                "createUser": "测试内容7k4o",
+                "email": "测试内容s94z",
+                "name": "测试内容c948",
+                "phone": "测试内容118x",
+                "sendStatus":-1,
+                "sendTime": "测试内容uhv6",
+                "userId": 47715
+            },
+            {
+                "createTime": "测试内容70l5",
+                "createUser": "测试内容7k4o",
+                "email": "测试内容s94z",
+                "name": "测试内容c948",
+                "phone": "测试内容118x",
+                "sendStatus":1,
+                "sendTime": "测试内容uhv6",
+                "userId": 47715
+            }
+        ],
+        "toatal": 3
+    },
+    "message": "测试内容1v63",
+    "status": true
+}

@@ -1,0 +1,116 @@
+{
+    "code": "测试内容8byf",
+    "data": {
+        "accountInfo": [
+            {
+                "cardNo": "测试内容q70h",
+                "fundAddress": "测试内容4244",
+                "securityAddress": "测试内容6y77"
+            }
+        ],
+        "age": 80562,
+        "attachmentList": [
+            {
+                "imgUrl": "测试内容3zb6",
+                "name": "测试内容m1j1",
+                "path": "测试内容9u61"
+            }
+        ],
+        "birthday": "测试内容m2o7",
+        "childList": [
+            {
+                "ident": "测试内容hl8k",
+                "name": "测试内容c7dw",
+                "sex": "测试内容lx82"
+            }
+        ],
+        "contactList": [
+            {
+                "name": "测试内容37ts",
+                "phone": "测试内容twys",
+                "relationship": "测试内容nyg5"
+            }
+        ],
+        "currentAddress": "测试内容42t6",
+        "degree": "测试内容2943",
+        "educationList": [
+            {
+                "certificate": "测试内容ou12",
+                "endTime": "测试内容205p",
+                "major": "测试内容yih7",
+                "schoolName": "测试内容bljx",
+                "startTime": "测试内容0c53"
+            }
+        ],
+        "email": "测试内容kb3g",
+        "englishName": "测试内容0305",
+        "familyList": [
+            {
+                "address": "测试内容279q",
+                "name": "田小田",
+                "phone": "测试内容9ri4",
+                "relationship": "测试内容728l"
+            },
+            {
+                "address": "测试内容279q",
+                "name": "田大田",
+                "phone": "测试内容9ri4",
+                "relationship": "测试内容728l"
+            }
+        ],
+        "hukouAddress": "测试内容lv4p",
+        "ident": "测试内容fuxb",
+        "isMarriage": "测试内容54kr",
+        "jobList": [
+            {
+                "companyName": "测试内容g823",
+                "endTime": "测试内容040e",
+                "leaveReason": "测试内容83o1",
+                "phone": "测试内容hjwf",
+                "position": "测试内容n34t",
+                "salary": "测试内容950m",
+                "startTime": "测试内容1pe5",
+                "welfare": "测试内容56i8"
+            }
+        ],
+        "materialList": [
+            {
+                "answer": "否",
+                "explain": "",
+                "problem": "您是否有亲戚或朋友在本公司工作? "
+            },
+             {
+                "answer": "否",
+                "explain": "",
+                "problem": "您曾否在本公司任职?  "
+            },
+             {
+                "answer": "否",
+                "explain": "",
+                "problem": "您是否有被解雇的经历？ "
+            },
+             {
+                "answer": "否",
+                "explain": "",
+                "problem": "您如获公司聘用，可否向现职或以前之雇主查询? "
+            }
+        ],
+        "name": "测试内容lioc",
+        "nation": "测试内容5xt2",
+        "phone": "测试内容4f1f",
+        "position": "测试内容b4q5",
+        "recommenderName": "测试内容4b54",
+        "sex": "测试内容m1ck",
+        "status": 75873,
+        "surveyList": [
+            {
+                "companyName": "测试内容vszd",
+                "name": "测试内容nei0",
+                "phone": "测试内容b3us",
+                "position": "测试内容6i5r"
+            }
+        ]
+    },
+    "message": "测试内容38yi",
+    "status": true
+}

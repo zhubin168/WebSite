@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+		<title>微信小商城</title>
+		<link href="lib/ionic/css/ionic.min.css" rel="stylesheet">
+		<link href="css/ionicons.min.css" rel="stylesheet">
+		<link href="css/app.css" rel="stylesheet">
+		<link href="css/mui.min.css" rel="stylesheet">
+		<script src="lib/requirejs/require.min.js" data-main="app/mainMobile"></script>
+	</head>
+
+	<body>
+		<ion-nav-bar class="bar bar-positive" id="barMain">
+			<ion-nav-back-button id="barContent">
+			</ion-nav-back-button>
+		</ion-nav-bar>
+		<ion-nav-view id="barFoot">
+			<ion-tabs class="tabs-icon-top tabs-color-active-positive {{hideTabs}}">
+				<ion-tab title="返回首页"  icon-off="ion-ios-home-outline" icon-on="ion-ios-home" href="home" ng-if="true">
+					<ion-nav-view name="app-index"></ion-nav-view>
+				</ion-tab>
+				  <ion-tab title="我的订单" icon-off="ion-ios-person-outline" icon-on="ion-ios-person"  href="myorder" ng-if="true">
+                  <ion-nav-view name="app-myorder"></ion-nav-view>
+                 </ion-tab>
+				<ion-tab title="免费咨询" icon-off="ion-ios-eye-outline" icon-on="ion-ios-eye" href="tel:10086" ng-if="true">
+					<ion-nav-view name="app-tel" href="tel:10086" ></ion-nav-view>
+				</ion-tab>
+			</ion-tabs>
+		</ion-nav-view>
+	</body>
+	<script type="text/javascript">
+		(function() {
+			var reSize = function() {
+				var deviceWidth = document.documentElement.clientWidth > 1300 ? 1300 : document.documentElement.clientWidth;
+				//按照640像素下字体为100px的标准来，得到一个字体缩放比例值 6.4
+				document.documentElement.style.fontSize = (deviceWidth / 3.75) + 'px';
+			};
+			reSize();
+			window.onresize = reSize;
+
+			//平台、设备和操作系统
+			var system = {
+				win: false,
+				mac: false,
+				xll: false
+			};
+			//检测平台
+			var p = navigator.platform;
+			system.win = p.indexOf("Win") == 0;
+			system.mac = p.indexOf("Mac") == 0;
+			system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+			if(system.win || system.mac || system.xll) {
+				//平台、设备和操作系统
+				document.getElementById("barMain").style.width="355px";
+				document.getElementById("barContent").style.width="355px";
+				document.getElementById("barFoot").style.width="355px";
+			} else {
+				//手机
+			}
+		})();
+	</script>
+
+</html>

@@ -1,0 +1,58 @@
+{
+    "code": "测试内容7sb5",
+    "data": {
+        "list": [
+            {
+
+                "email": "测试内容23q688888888888888888888",
+                "entryTime": "2017-12-12 12:12:12",
+                "hrName": "测试内容8olz",
+                "name": "测试内容8any",
+                "offerTime": "2017-12-12",
+                "phone": "13028897456",
+                "status":1,
+                "email": "测试内容qlh5",
+                "entryTime": "2017-12-12 00:00:00",
+                "hrName": "测试内容0bg8",
+                "name": "测试内容e5ut",
+                "offerTime": "2017-12-12 12:12:12",
+                "phone": "13028897374",
+                "status": 0,
+                "userId": 46071
+            },
+            {
+                "email": "测试内容qlh5",
+                "entryTime": "测试内容52cv",
+                "hrName": "测试内容0bg8",
+                "name": "测试内容e5ut",
+                "offerTime": "测试内容9qrg",
+                "phone": "测试内容p8ub",
+                "status": 1,
+                "userId": 46072
+            },
+            {
+                "email": "测试内容qlh5",
+                "entryTime": "测试内容52cv",
+                "hrName": "测试内容0bg8",
+                "name": "测试内容e5ut",
+                "offerTime": "测试内容9qrg",
+                "phone": "测试内容p8ub",
+                "status": 2,
+                "userId": 46073
+            },
+            {
+                "email": "测试内容qlh5",
+                "entryTime": "测试内容52cv",
+                "hrName": "测试内容0bg8",
+                "name": "测试内容e5ut",
+                "offerTime": "测试内容9qrg",
+                "phone": "测试内容p8ub",
+                "status": 3,
+                "userId": 46074
+            }
+        ],
+        "total": 4
+    },
+    "message": "获取成功",
+    "status": true
+}

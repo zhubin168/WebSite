@@ -1,0 +1,189 @@
+{
+  "code": "FNHR-1000",
+  "message": "成功！",
+  "status": true,
+  "data":{
+    "account": [
+        {
+            "accountid": 56660,
+            "cardNo": "622603259856475123",
+            "fundAddress": "广东省深圳市南山区福中一路17楼",
+            "securityAddress": "广东省深圳市福田区福中一路17楼",
+            "userId": 101174
+        }
+    ],
+    "backInfo": [
+        {
+            "backId": 48434,
+            "companyName": "华为",
+            "name": "华威格",
+            "phone": "13256478451",
+            "position": "经理",
+            "userId": 101174
+        },
+        {
+            "backId": 48432,
+            "companyName": "腾讯",
+            "name": "通修改",
+            "phone": "13256478451",
+            "position": "董事长",
+            "userId": 101174
+        }
+    ],
+    "children": [
+        {
+            "childrenId": 33831,
+            "ident": "216549848454",
+            "sex": "男",
+            "userId": 80240,
+            "userName": "小田"
+        },
+        {
+            "childrenId": 33832,
+            "ident": "测试内容4mzs",
+            "sex": "女",
+            "userId": 80240,
+            "userName": "大田"
+        }
+    ],
+    "contact": [
+        {
+            "name": "严大毛",
+            "phone": "13521478456",
+            "relationship": "朋友",
+            "urgentId": 83308,
+            "userId": 35800
+        }
+    ],
+    "dataInfo": [
+        {
+            "fireRemark": "测试内容d7ww",
+            "isAllow": 1,
+            "isFire": 1,
+            "isOffice": 0,
+            "isRelative": 0,
+            "officeRemark": "",
+            "relativeRemark": "",
+            "userId": 43366
+        }
+    ],
+    "education": [
+        {
+            "beginTime": "2014-05-12 00:00:00",
+            "certificate": "毕业证书",
+            "educatiionId": 43128,
+            "endTime": "2018-05-12 00:00:00",
+            "major": "经济管理",
+            "schoolName": "北京大学",
+            "userId": 11316
+        },
+        {
+            "beginTime": "2010-05-12 00:00:00",
+            "certificate": "毕业证书",
+            "educatiionId": 43128,
+            "endTime": "2014-05-12 00:00:00",
+            "major": "",
+            "schoolName": "北大附中",
+            "userId": 11316
+        }
+    ],
+    "family": [
+        {
+            "address": "测试内容7kje",
+            "city": "测试内容8908",
+            "familyId": 31338,
+            "name": "测试内",
+            "phone": "13025647456",
+            "province": "测试内容4p1f",
+            "region": "测试内容w4pd",
+            "relationship": "父亲",
+            "userId": 101174
+        },
+        {
+            "address": "测试内容7kje",
+            "city": "测试内容8908",
+            "familyId": 31338,
+            "name": "测试内",
+            "phone": "13025647456",
+            "province": "测试内容4p1f",
+            "region": "测试内容w4pd",
+            "relationship": "母亲",
+            "userId": 101174
+        }
+    ],
+    "file": 
+        {
+            "list": [
+                {
+                    "fileId": 43145,
+                    "filePath": "./img/app/front.png",
+                    "fileType": "1",
+                    "userId": 75670
+                },
+
+                {
+                    "fileId": 43145,
+                    "filePath": "./img/app/front.png",
+                    "fileType": "3",
+                    "userId": 75670
+                },
+
+                {
+                    "fileId": 43145,
+                    "filePath": "./img/app/reverse.png;./img/app/front.png",
+                    "fileType": "5",
+                    "userId": 75670
+                }
+            ]
+        },
+    "userInfo": [
+        {
+            "userName": "田小田",
+            "position": "开发工程师",
+            "phone": "13088883333",
+            "age":"24",
+            "birthDate": "1992-07-23",
+            "education": "本科",
+            "email": "758374775@qq.com",
+            "ident": "360321199207238018",
+            "identAddress": "居住地址门牌号18",
+            "liveAdddrss": "居住地址门牌号18",
+            "liveCity": "深圳市",
+            "liveProvince": "广东省",
+            "liveRegion": "福田区",
+            "marriage": "未婚",
+            "native": "湖南省长沙市",
+            "recommendName": "101174",
+            "sex": "男",
+            "userId": "101174",
+            "userPing": "tianxiaotian"
+        }
+    ],
+    "work": [
+        {
+            "beginTime": "2014-12-12",
+            "companyName": "测试内容1532",
+            "endTime": "2017-12-12",
+            "monthly": "测试内容592a",
+            "phone": "13028954754",
+            "position": "开发工程师",
+            "reasons": "测试内容d1ku",
+            "userId": 101174,
+            "welfare": "失业保险",
+            "workId": 26384
+        },
+        {
+            "beginTime": "2010-12-12",
+            "companyName": "测试内容1532",
+            "endTime": "2014-12-12",
+            "monthly": "测试内容592a",
+            "phone": "13028954754",
+            "position": "测试工程师",
+            "reasons": "测试内容d1ku",
+            "userId": 101174,
+            "welfare": "五险一金",
+            "workId": 26384
+        }
+    ]
+  }
+}

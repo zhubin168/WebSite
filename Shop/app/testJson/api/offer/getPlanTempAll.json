@@ -1,0 +1,42 @@
+{
+    "code": "测试内容5i1n",
+    "data": {
+        "list": [
+            {
+                "emailContent": "测试内容70l5",
+                "emailTitle": "测试内容7k4o",
+                "id":1,
+                "isDefault":false,
+                "name":"实力",
+                "sendEmail": "测试内容118x"
+            },
+            {
+                "emailContent": "测试内容70l6",
+                "emailTitle": "测试内容7k4o",
+                "id":1,
+                "isDefault":true,
+                "name":"实力3",
+                "sendEmail": "测试内容118x"
+            },
+            {
+                "emailContent": "测试内容70l7",
+                "emailTitle": "测试内容7k4o",
+                "id":1,
+                "isDefault":false,
+                "name":"实力3",
+                "sendEmail": "测试内容118x"
+            },
+            {
+                "emailContent": "测试内容70l",
+                "emailTitle": "测试内容7k4o",
+                "id":1,
+                "isDefault":false,
+                "name":"实力3",
+                "sendEmail": "测试内容118x"
+            }
+        ],
+        "toatal": 3
+    },
+    "message": "测试内容",
+    "status": true
+}

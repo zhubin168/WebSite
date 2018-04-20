@@ -1,0 +1,16 @@
+{
+    "code": "测试内容5i1n",
+    "data": {
+        "list": [
+            {
+                "isDefault": "false",
+                "planName": "方案名称1",
+                "sendEmail": "测试内容118x2",
+                "emailContent": "测试内容70l5"
+            }
+        ],
+        "toatal": 4
+    },
+    "message": "测试内容",
+    "status": true
+}
